@@ -3,7 +3,7 @@
  */
 import { combineReducers } from "redux";
 
-import { LeadReducer } from "ducks/lead";
+import { LeadReducer } from "Ducks/lead";
 
 const reducers = combineReducers({
   // reducers

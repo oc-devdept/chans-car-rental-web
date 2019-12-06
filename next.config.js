@@ -8,10 +8,10 @@ const optimizedImages = require("next-optimized-images");
 const nextConfig = {
   distDir: "dist",
   webpack(config) {
-    config.resolve.alias["components"] = path.join(__dirname, "components");
-    config.resolve.alias["store"] = path.join(__dirname, "redux/store");
-    config.resolve.alias["ducks"] = path.join(__dirname, "redux/ducks");
-    config.resolve.alias["images"] = path.join(__dirname, "images");
+    config.resolve.alias["Components"] = path.join(__dirname, "components");
+    config.resolve.alias["Store"] = path.join(__dirname, "redux/store");
+    config.resolve.alias["Ducks"] = path.join(__dirname, "redux/ducks");
+    config.resolve.alias["Images"] = path.join(__dirname, "assets/images");
     config.resolve.alias["Api"] = path.join(__dirname, "api");
     return config;
   }

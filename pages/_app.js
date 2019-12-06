@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 import App from "next/app";
 import withRedux from "next-redux-wrapper";
 import withReduxSaga from "next-redux-saga";
-import makeStore from "store";
+import makeStore from "Store";
 import { DefaultSeo } from "next-seo";
 import GoTop from "../components/Shared/GoTop";
 
@@ -33,7 +33,7 @@ class MyApp extends App {
           description="Chan's Car Rental Services"
         />
         <Provider store={store}>
-          <Component {...pageProps} />z
+          <Component {...pageProps} />
         </Provider>
         <GoTop scrollStepInPx="50" delayInMs="16.66" />
       </>
