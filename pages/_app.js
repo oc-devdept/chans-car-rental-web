@@ -10,27 +10,16 @@ import { Provider } from "react-redux";
 import App from "next/app";
 import withRedux from "next-redux-wrapper";
 import withReduxSaga from "next-redux-saga";
-// import { initStore } from "../store/reducers/cartReducer";
 import makeStore from "store";
 import { DefaultSeo } from "next-seo";
 import GoTop from "../components/Shared/GoTop";
 
 class MyApp extends App {
-  // static async getInitialProps({ Component, ctx }) {
-  //   return {
-  //     pageProps: Component.getInitialProps
-  //       ? await Component.getInitialProps(ctx)
-  //       : {}
-  //   };
-  // }
-
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
-
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps({ ctx });
     }
-
     return { pageProps };
   }
 
@@ -40,17 +29,11 @@ class MyApp extends App {
     return (
       <>
         <DefaultSeo
-          title="Novine - React Next eCommerce Templates"
-          description="Novine - React Next eCommerce Templates. This has been built with React, Next.js, Express.js, and ES6+"
-          openGraph={{
-            type: "website",
-            locale: "en_IE",
-            url: "https://nextland-react.envytheme.com/",
-            site_name: "Novine - React Next eCommerce Templates"
-          }}
+          title="Chan's Car Rental"
+          description="Chan's Car Rental Services"
         />
         <Provider store={store}>
-          <Component {...pageProps} />
+          <Component {...pageProps} />z
         </Provider>
         <GoTop scrollStepInPx="50" delayInMs="16.66" />
       </>
