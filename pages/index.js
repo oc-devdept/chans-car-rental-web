@@ -25,7 +25,6 @@ class Index extends Component {
     this.props.getAllLead();
   }
   render() {
-    console.log(this.props.leadList);
     return (
       <React.Fragment>
         <Navbar />

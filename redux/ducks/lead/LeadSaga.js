@@ -22,7 +22,6 @@ import api from "Api";
 //=========================
 const getAllLeadRequest = async () => {
   // const result = await api.get("/leads/getall");
-  console.log("here");
   return result.data.data;
 };
 //=========================
