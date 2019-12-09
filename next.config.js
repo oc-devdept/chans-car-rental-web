@@ -9,6 +9,7 @@ const nextConfig = {
   distDir: "dist",
   webpack(config) {
     config.resolve.alias["Components"] = path.join(__dirname, "components");
+    config.resolve.alias["Constants"] = path.join(__dirname, "constants");
     config.resolve.alias["Store"] = path.join(__dirname, "redux/store");
     config.resolve.alias["Ducks"] = path.join(__dirname, "redux/ducks");
     config.resolve.alias["Images"] = path.join(__dirname, "assets/images");
