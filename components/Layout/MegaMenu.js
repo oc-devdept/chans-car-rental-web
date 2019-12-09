@@ -34,8 +34,6 @@ class MegaMenu extends Component {
     const classTwo = collapsed
       ? "navbar-toggler navbar-toggler-right collapsed"
       : "navbar-toggler navbar-toggler-right";
-
-    let { products } = this.props;
     return (
       <div className="navbar-area">
         <div id="navbar" className="comero-nav">

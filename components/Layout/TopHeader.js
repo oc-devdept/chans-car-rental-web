@@ -29,8 +29,18 @@ class TopHeader extends Component {
 
             <div className="col-lg-5 col-md-6">
               <ul className="top-header-right-nav">
-                <li>Facebook</li>
-                <li>Instagram</li>
+                <li>
+                  <i
+                    style={{ padding: "5px" }}
+                    className="fab fa-facebook-f"
+                  ></i>
+                </li>
+                <li>
+                  <i
+                    style={{ padding: "5px" }}
+                    className="fab fa-instagram"
+                  ></i>
+                </li>
               </ul>
             </div>
           </div>

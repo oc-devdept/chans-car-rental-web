@@ -85,8 +85,19 @@ class Footer extends Component {
               <div className="single-footer-widget">
                 <h3>Connect with Us</h3>
 
-                <ul className="footer-contact-info">
-                  <li>Location: 2750 Quadra Street Victoria, Canada</li>
+                <ul className="top-header-nav">
+                  <li>
+                    <i
+                      style={{ padding: "5px" }}
+                      className="fab fa-facebook-f"
+                    ></i>
+                  </li>
+                  <li>
+                    <i
+                      style={{ padding: "5px" }}
+                      className="fab fa-instagram"
+                    ></i>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -98,7 +109,7 @@ class Footer extends Component {
             <div className="row align-items-center">
               <div className="col-lg-6 col-md-6">
                 <small>
-                  Copyrite @ 2019 Chan's Car Rental. All Rights Reserved
+                  Copyright @ 2019 Chan's Car Rental. All Rights Reserved
                 </small>
               </div>
             </div>
