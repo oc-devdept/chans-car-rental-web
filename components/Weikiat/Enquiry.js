@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 function Enquiry(props){
 	return(
-		<div class="enquiry-form">
+		<div className="enquiry-form">
 			<Form>
 				<Form.Group controlId="formGroupName">
 					<Form.Label>Name</Form.Label>

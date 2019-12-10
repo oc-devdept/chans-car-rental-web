@@ -3,7 +3,7 @@ import ContactDetail from "./ContactDetail"
 
 function ContactInfo(){
 	return(
-		<div class="contact-info">
+		<div className="contact-info">
 			{/* Need to figure out how to put newline in this text without dangerouslySetInnerHTML */}
 			<ContactDetail 
 				image="https://via.placeholder.com/25"
