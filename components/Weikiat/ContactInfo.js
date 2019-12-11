@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import ContactDetail from "./ContactDetail"
 
 function ContactInfo(){
@@ -6,36 +6,35 @@ function ContactInfo(){
 		<div className="contact-info">
 			{/* Need to figure out how to put newline in this text without dangerouslySetInnerHTML */}
 			<ContactDetail 
-				image="https://via.placeholder.com/25"
-				alt="address" 
+				icon="fas fa-map-marker-alt"
 				text="363 Sembawang Road
 				Goodlink Park
 				Singapore 758379"
 			/>
 			<ContactDetail 
-				image="https://via.placeholder.com/25"
-				alt="phone number" 
+				icon="fas fa-phone"
 				text="+65 6753 2536"
+				href="tel: +65 6753 2536"
 			/>
 			<ContactDetail 
-				image="https://via.placeholder.com/25"
-				alt="whatsapp" 
+				icon="fab fa-whatsapp"
 				text="+65 9772 5363"
+				href="https://api.whatsapp.com/send?phone=6597725363"
 			/>
 			<ContactDetail 
-				image="https://via.placeholder.com/25"
-				alt="email" 
+				icon="far fa-envelope"
 				text="sales@chans.com.sg"
+				href="mailto: sales@chans.com.sg"
 			/>
 			<ContactDetail 
-				image="https://via.placeholder.com/25"
-				alt="facebook" 
-				text="facebook.com/Chans-Car-Rental"
+				icon="fab fa-facebook-f"
+				text="/Chans-Car-Rental"
+				href="#"
 			/>
 			<ContactDetail 
-				image="https://via.placeholder.com/25"
-				alt="instagram" 
+				icon="fab fa-instagram"
 				text="chanscarrental"
+				href="#"
 			/>
 		</div>
 	)

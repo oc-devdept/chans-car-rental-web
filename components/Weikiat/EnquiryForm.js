@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-function Enquiry(props){
+function EnquiryForm(props){
 	return(
 		<div className="enquiry-form">
 			<Form>
@@ -26,4 +26,4 @@ function Enquiry(props){
 	)
 }
 
-export default Enquiry;
+export default EnquiryForm;

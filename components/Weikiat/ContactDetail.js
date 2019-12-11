@@ -1,16 +1,27 @@
-import React, { Component } from "react"
-
+import React from "react"
 
 function ContactDetail(props){
     return(
         <div className="contact-detail container">
-            <div className="row">
-                <div className="contact-detail-image">
-                    {/* using require() in img src throws unknown error */}
-                    <img src={props.image} alt={props.alt}/>
+            <div className="row" style={{marginBottom: 10}}>
+                <div 
+                    className="icon" 
+                    style={{
+                        textAlign: "center", 
+                        verticalAlign: "middle", 
+                        height: 30, 
+                        width: 30
+                    }}
+                >
+                    <i 
+                        className={props.icon} 
+                        style={{fontSize: 16, verticalAlign: "middle"}}
+                    />
                 </div>
                 <div className="contact-detail-text">
-                    <p>{props.text}</p>
+                    <a href={true && props.href} target="_blank">
+                        <p>{props.text}</p>
+                    </a>
                 </div>
             </div>
         </div>
