@@ -22,23 +22,25 @@ class ContactUs extends Component {
                             <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.2913254507557!2d103.825382490687!3d1.42601282930758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1366bf38b86d%3A0xfa6e06eeb142f26d!2sChan&#39;s%20Car%20Rental!5e0!3m2!1sen!2ssg!4v1576046456146!5m2!1sen!2ssg" 
                                 width="500" 
-                                height="400" 
+                                height="400"
                                 frameBorder="0"
-                                allowFullscreen=""
+                                allowFullScreen=""
+                                style={{padding:"20px 0"}}
                             />
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-lg-6 col-md-12">
-                            <h2>Operating Hours</h2>
-                            <div style={{display: "flex"}}>
+                            <h2 style={{padding: "20px 0"}}>Operating Hours</h2>
+                            <div style={{display: "flex", padding: "20px 0"}}>
                                 <i 
                                     className="far fa-clock" 
                                     style={{
                                         fontSize: 16, 
                                         width: 30, 
                                         textAlign: "center",
-                                        paddingTop: 10
+                                        paddingTop: 10,
+                                        color: "#B72C2E"
                                     }}
                                 />
                                 <p>
@@ -53,8 +55,10 @@ class ContactUs extends Component {
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-12">
-                            <h2>Leave us a message or feedback!</h2>
-                            <EnquiryForm />                            
+                            <h2 style={{padding:"20px 0"}}>Leave us a message or feedback!</h2>
+                            <div style={{padding:"20px 0"}}>
+                                <EnquiryForm />                            
+                            </div>
                         </div>
                     </div>
                 </div>

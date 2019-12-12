@@ -61,7 +61,7 @@ function FaqInfo() {
     ]
 
     return(   
-        <div class="faq-info">
+        <div className="faq-info" style={{padding: "20px 0"}}>
             <Accordion defaultActiveKey="0">
                 {faqDetails.map( item => (
                     <Card key={item.id}>

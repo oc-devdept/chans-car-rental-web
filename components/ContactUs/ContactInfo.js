@@ -44,7 +44,7 @@ function ContactInfo(){
 	]
 
 	return(
-		<div className="contact-info">
+		<div className="contact-info" style={{padding: "20px 0"}}>
 			{contactDetails.map( item => (
 				<ContactDetail 
 					key={item.id}

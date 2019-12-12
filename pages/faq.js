@@ -19,16 +19,30 @@ class Faq extends Component {
           			<FaqInfo />
         		</div>
 				<div className="container">
-					<h3>Can't find your answer?</h3>
+					<h3 style={{padding:"20px 0"}}>
+						Can't find your answer?
+					</h3>
 				</div>
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-6 col-md-12">
-							<h2>Leave us a message or feedback!</h2>
-							<EnquiryForm />
+							<h2 style={{
+								padding:"20px 0", 
+								margin: 0
+							}}>
+								Leave us a message or feedback!
+							</h2>
+							<div style={{padding: "20px 0"}}>
+								<EnquiryForm />
+							</div>
 						</div>
 						<div className="col-lg-6 col-md-12">
-							<h2>Get in touch!</h2>
+							<h2 style={{
+								padding:"20px 0", 
+								margin: 0
+							}}>
+								Get in touch!
+							</h2>
 							<ContactInfo />
 						</div>
 					</div>

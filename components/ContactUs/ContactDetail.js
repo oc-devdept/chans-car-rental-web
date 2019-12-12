@@ -10,7 +10,8 @@ function ContactDetail(props){
                         textAlign: "center", 
                         verticalAlign: "middle", 
                         height: 30, 
-                        width: 30
+                        width: 30,
+                        color: "#B72C2E"
                     }}
                 >
                     <i 
