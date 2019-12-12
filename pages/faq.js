@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 // Page Layout
 import Default from "Components/Layout/PageTemplates/Default";
-import Breadcrumb from "../components/Common/Breadcrumb";
+import Breadcrumb from "Components/Common/Breadcrumb";
 // Components
-import EnquiryForm from "../components/Weikiat/EnquiryForm"
-import ContactInfo from "../components/Weikiat/ContactInfo"
-import FaqInfo from "../components/Weikiat/FaqInfo"
-import ReduxTestForm from "../components/Weikiat/ReduxTestForm"
+import EnquiryForm from "Components/EnquiryForm/EnquiryForm"
+import ContactInfo from "Components/ContactUs/ContactInfo"
+import FaqInfo from "Components/Faq/FaqInfo"
 
 class Faq extends Component {
 	render() {
@@ -26,8 +25,7 @@ class Faq extends Component {
 					<div className="row">
 						<div className="col-lg-6 col-md-12">
 							<h2>Leave us a message or feedback!</h2>
-							{/* {<EnquiryForm />} */}
-							<ReduxTestForm />
+							<EnquiryForm />
 						</div>
 						<div className="col-lg-6 col-md-12">
 							<h2>Get in touch!</h2>
