@@ -3,7 +3,7 @@ import React from "react"
 function ContactDetail(props){
     return(
         <div className="contact-detail container">
-            <div className="row" style={{marginBottom: 10}}>
+            <div className="row mb-2">
                 <div 
                     className="icon" 
                     style={{
@@ -16,7 +16,10 @@ function ContactDetail(props){
                 >
                     <i 
                         className={props.icon} 
-                        style={{fontSize: 16, verticalAlign: "middle"}}
+                        style={{
+                            fontSize: 16, 
+                            verticalAlign: "middle"
+                        }}
                     />
                 </div>
                 <div className="contact-detail-text">

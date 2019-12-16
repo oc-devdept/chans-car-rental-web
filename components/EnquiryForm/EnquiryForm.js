@@ -90,14 +90,7 @@ class EnquiryForm extends Component {
 							{this.state.errors.messageError}
 						</Form.Control.Feedback>
 					</Form.Group>
-					<Button 
-						type="submit"
-						variant="primary"
-						// style={{
-						// 	backgroundColor: "#B72C2E",
-						// 	borderColor: "#B72C2E"
-						// }}
-					>
+					<Button type="submit">
 						Send
 					</Button>
 				</Form>
