@@ -1,3 +1,6 @@
+/* Styles for index.js */
+
+/* Hero */
 .index-hero {
     height: 300px;
     background-image: url("../../images/index-hero.png");
@@ -17,4 +20,24 @@
     .index-hero {
         height: 500px
     }
+}
+
+/* Searchbar */
+.index-search {
+    bottom: 100px;
+    background-color: #3787D3;
+    min-height: 250px
+}
+
+.index-search button {
+    height: 45px;
+    width: 100%;
+    background-color: #5FAF57;
+    border: 1px solid #5FAF57;
+}
+
+.index-search button:hover {
+    background-color: #52994C;
+    border: 1px solid #52994C;
+    color: white;
 }

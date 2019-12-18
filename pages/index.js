@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col'
-
 // Page Layout
 import Default from "Components/Layout/PageTemplates/Default";
 
 import CtaIndex from "Components/CallToAction/CtaIndex"
+import VehicleSearch from "../components/VehicleSearch/VehicleSearch";
 import "../assets/styles/index.css"
+import { relative } from "path";
 
 // Is there a better place to put this?
 const whyUsInfo = [
@@ -60,53 +58,44 @@ class Index extends Component {
 		return (
 			<Default>
 				<div className="jumbotron d-flex justify-content-center index-hero">
-					<div className="align-self-center">
-						<h1 className="text-center text-white">RENT A CAR NOW!</h1>
-						<p className="h5 text-center text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<div className="align-self-lg-center align-self-md-start">
+						<h1 className="text-center text-white">
+							RENT A CAR NOW!
+						</h1>
+						<p className="h5 text-center text-white">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						</p>
 					</div>
 				</div>
-				<div className="container border">
-					<h2>Search for your ideal car</h2>
-					{/* Work in progress */}
-					<Form>
-						<Form.Row>
-							<Col>
-								<Form.Group controlId="0">
-									<Form.Label>Pick-up / Drop-off Location:</Form.Label>
-									<Form.Control 
-										type="text" 
-										placeholder="363 Sembawang Road, Goodlink Park"
-										disabled={true}
-									/>
-								</Form.Group>
-							</Col>
-							<Col>
-								<Form.Group controlId="1">
-									<Form.Label>Pick-up Date:</Form.Label>
-									<Form.Control 
-										type="date" 
-									/>
-								</Form.Group>
-							</Col>
-							<Col>
-								<Form.Group controlId="2">
-									<Form.Label>Drop-off Date:</Form.Label>
-									<Form.Control 
-										type="date" 
-									/>
-								</Form.Group>
-							</Col>
-							<Col>
-								<Button type="submit">Search</Button>
-							</Col>
-						</Form.Row>
-					</Form>
+				<div className="container position-relative d-flex flex-column 
+					justify-content-center index-search px-4"
+				>
+					<h2 className="my-3" style={{fontWeight: 600}}>
+						Search for your ideal car
+					</h2>
+					<VehicleSearch />
 				</div>
-				<div className="container border mb-4">
+				<div 
+					className="container border mb-4"
+					style={{
+						position: "relative",
+						bottom: 40
+					}}
+				>
 					<div className="row">
 						<div className="col-lg-6 col-md-12 p-5 text-justify">
 							<h2>Service is Our First Priority</h2>
-							<h2>At <img /></h2>
+							<h2>
+								At <img 
+									src="Images/chans-logo.png" 
+									alt="chan's" 
+									height="30"
+									style={{
+										position: "relative",
+										bottom: 5
+									}}
+								/>
+							</h2>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 								Mauris pretium nulla lacinia nisl aliquam dictum ac sit 
@@ -122,12 +111,17 @@ class Index extends Component {
 							<img 
 								src="Images/index-office.jpg" 
 								alt="Chan's Car Rental"
-								className=""
 							/>
 						</div>
 					</div>
 				</div>
-				<div className="container border mb-4">
+				<div 
+					className="container border mb-4"
+					style={{
+						position: "relative",
+						bottom: 20
+					}}
+				>
 					<h2 className="text-center py-4">Why Choose Us?</h2>
 					<div className="row pb-4">
 						{whyUsInfo.map((item, id) => (
