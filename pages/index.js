@@ -5,7 +5,6 @@ import Default from "Components/Layout/PageTemplates/Default";
 import CtaIndex from "Components/CallToAction/CtaIndex"
 import VehicleSearch from "../components/VehicleSearch/VehicleSearch";
 import "../assets/styles/index.css"
-import { relative } from "path";
 
 // Is there a better place to put this?
 const whyUsInfo = [
