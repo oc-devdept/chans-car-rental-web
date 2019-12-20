@@ -8,18 +8,7 @@
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-@media only screen and (min-width: 992px) { 
-    .index-hero {
-        height: 400px
-    }
-}
-
-@media only screen and (min-width: 1200px) { 
-    .index-hero {
-        height: 500px
-    }
+    display: flex;
 }
 
 /* Searchbar */
@@ -41,4 +30,44 @@
     background-color: #52994C;
     border: 1px solid #52994C;
     color: white;
+}
+
+/* About Us */
+.index-about-us {
+    position: relative;
+    bottom: 60px
+}
+
+.index-about-us h2 img {
+    position: relative;
+    bottom: 5px
+}
+
+/* Why Us */
+.index-why-us {
+    position: relative;
+    bottom: 20px
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 575px) {
+    .index-hero {
+        display: none;
+    }
+
+    .index-search, .index-about-us, .index-why-us {
+        bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 992px) { 
+    .index-hero {
+        height: 400px
+    }
+}
+
+@media only screen and (min-width: 1200px) { 
+    .index-hero {
+        height: 500px
+    }
 }

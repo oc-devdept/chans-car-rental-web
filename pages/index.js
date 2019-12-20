@@ -56,7 +56,7 @@ class Index extends Component {
 	render() {
 		return (
 			<Default>
-				<div className="jumbotron d-flex justify-content-center index-hero">
+				<div className="jumbotron index-hero justify-content-center ">
 					<div className="align-self-lg-center align-self-md-start">
 						<h1 className="text-center text-white">
 							RENT A CAR NOW!
@@ -66,34 +66,20 @@ class Index extends Component {
 						</p>
 					</div>
 				</div>
-				<div className="container position-relative d-flex flex-column 
-					justify-content-center index-search px-4"
+				<div className="container index-search position-relative d-flex flex-column 
+					justify-content-center px-4 mb-4"
 				>
 					<h2 className="my-3" style={{fontWeight: 600}}>
 						Search for your ideal car
 					</h2>
 					<VehicleSearch />
 				</div>
-				<div 
-					className="container border mb-4"
-					style={{
-						position: "relative",
-						bottom: 40
-					}}
-				>
+				<div className="container index-about-us border mb-4">
 					<div className="row">
 						<div className="col-lg-6 col-md-12 p-5 text-justify">
 							<h2>Service is Our First Priority</h2>
 							<h2>
-								At <img 
-									src="Images/chans-logo.png" 
-									alt="chan's" 
-									height="30"
-									style={{
-										position: "relative",
-										bottom: 5
-									}}
-								/>
+								At <img src="Images/chans-logo.png" alt="chan's" height="30"/>
 							</h2>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -114,13 +100,7 @@ class Index extends Component {
 						</div>
 					</div>
 				</div>
-				<div 
-					className="container border mb-4"
-					style={{
-						position: "relative",
-						bottom: 20
-					}}
-				>
+				<div className="container index-why-us border mb-4">
 					<h2 className="text-center py-4">Why Choose Us?</h2>
 					<div className="row pb-4">
 						{whyUsInfo.map((item, id) => (
