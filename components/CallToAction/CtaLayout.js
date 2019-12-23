@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button"
 function CtaLayout(props) {
     return(
         <div className="call-to-action text-center">
-            <h2 className="py-3">{props.title}</h2>
+            <h2 className="py-3 text-white">{props.title}</h2>
             <Button 
                 href={props.mainHref}
                 className="mx-2"

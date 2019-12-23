@@ -49,6 +49,15 @@
     bottom: 20px
 }
 
+/* Call To Action */
+.index-cta {
+    background-image: url("../../images/index-hero.png");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* Responsive Styles */
 @media only screen and (max-width: 575px) {
     .index-hero {

@@ -8,8 +8,8 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
-// todo: block out all PHs
 // pending: update from chans on any booking restrictions
+// date picker docs - https://react-day-picker.js.org/docs/getting-started
 class VehicleSearch extends Component {
 	constructor(props) {
 		super(props)
@@ -71,20 +71,21 @@ class VehicleSearch extends Component {
 	publicHolidays() {
 		const year = 2020
 		// Jan = 0, Feb = 1, ... Dec = 11
+		// https://www.mom.gov.sg/newsroom/press-releases/2019/0408-public-holidays-for-2020
 		const dates = [
 			{	month: 0,	day: 1 },
-			{	month: 1,	day: 5 },
-			{	month: 1,	day: 6 },
-			{	month: 3,	day: 19 },
+			{	month: 0,	day: 25 },
+			{	month: 0,	day: 26 },
+			{	month: 0,	day: 27 },
+			{	month: 3,	day: 10 },
 			{	month: 4,	day: 1 },
-			{	month: 4,	day: 19	},
-			{	month: 4,	day: 20	},
-			{	month: 5,	day: 5 },
+			{	month: 4,	day: 7	},
+			{	month: 4,	day: 24	},
+			{	month: 4,	day: 25	},
+			{	month: 6,	day: 31 },
 			{	month: 7,	day: 9 },
-			{	month: 7,	day: 11 },
-			{	month: 7,	day: 12 },
-			{	month: 9,	day: 27 },
-			{	month: 9,	day: 28 },
+			{	month: 7,	day: 10 },
+			{	month: 10, day: 14	},
 			{	month: 11, day: 25 },
 		]
 

@@ -121,7 +121,7 @@ class Index extends Component {
 						))}
 					</div>
 				</div>
-				<div className="jumbotron">
+				<div className="jumbotron index-cta">
 					<CtaIndex />
 				</div>
 			</Default>
