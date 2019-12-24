@@ -2,27 +2,30 @@ import React, { Component } from "react";
 // Page Layout
 import Default from "Components/Layout/PageTemplates/Default";
 import Breadcrumb from "Components/Common/Breadcrumb"
+import fetch from "isomorphic-unfetch"
+
+import Filter from "Components/VehicleList/Filter"
 
 // /vehicles/[vehicleType]/[vehicleCategory]
 class Vehicles extends Component {
   constructor(props){
 		super(props)
 		this.state = { 
-			data: "hello"
+
 		}
 	}
 
 	// static async getInitialProps({ req }) {
-	// 	const res = await fetch("/data/vehicle-list.json")
+	// 	const res = await fetch("http://localhost:3001/vehicle-list")
 	// 	const json = await res.json()
 	// 	console.log(json)
-	// 	return json
+	// 	return { json }
 	// }
-	
+
 	// componentDidMount() {
 	// 	fetch("http://localhost:3001/vehicle-list")
 	// 		.then(response => response.json())
-	// 		.then(data => this.setState({ data: data }))
+	// 		.then(result => this.setState({ data: result }))
 
 	// 		console.log(this.state.data)
 	// }
@@ -35,9 +38,9 @@ class Vehicles extends Component {
 					<Breadcrumb title="pending dynamic breadcrumb"/>
 				</div>
 				<div className="container">
-					<div className="vehicles-filter">vehicle filter here</div>
+					<Filter />
 					<div className="vehicles-results">
-						{this.state.data}
+
 					</div>
 				</div>
 			</Default>

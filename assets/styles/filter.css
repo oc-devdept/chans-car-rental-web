@@ -1,0 +1,38 @@
+/* Styles for Components/VehicleList/Filter.js */
+
+/* General */
+
+.vehicles-filter ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Filter Family */
+.filter-family {
+    padding: 10px;
+    background-color: #5FAF57;
+    color: white;
+    font-size: 16px;
+}
+
+.filter-family:hover {
+    background-color: #52994C;
+}
+
+/* Filter Categories */
+.filter-category {
+    padding: 10px;
+    color: #666666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-category:hover {
+    background-color: #f5f5f5;
+    color: #B72C2E;
+}
+
+/* Responsive Styles */
+
+/* todo: show/hide Collapse component in Filter.js */
