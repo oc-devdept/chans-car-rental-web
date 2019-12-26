@@ -1,10 +1,13 @@
 /* Styles for Components/VehicleList/Filter.js */
 
 /* General */
-
 .vehicles-filter ul {
     list-style-type: none;
     padding: 0;
+}
+
+.ReactCollapse--collapse {
+    transition: height 500ms;
 }
 
 /* Filter Family */
@@ -33,6 +36,20 @@
     color: #B72C2E;
 }
 
-/* Responsive Styles */
+/* Filter toggle for smaller screens */
+.filter-toggle {
+    background-color: white;
+    color: #666666;
+    border: none;
+}
 
-/* todo: show/hide Collapse component in Filter.js */
+.filter-toggle:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media only screen and (min-width: 768px) {
+    .filter-toggle {
+        display: none;
+    }
+}

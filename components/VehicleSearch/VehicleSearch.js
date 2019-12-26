@@ -20,83 +20,83 @@ class VehicleSearch extends Component {
 			isSaturdayDropoff: false,
 		}
 	}
-
-	inputField = [
-		{
-			controlId: "pick-up",
-			formLabel: "Pick-up Date:",
-			timeId: "pick-up-time"
-		},
-		{
-			controlId: "drop-off",
-			formLabel: "Drop-off Date:",
-			timeId: "drop-off-time"
-		}
-	]
-
+	
 	handleDayChange(date, modifiers, input) {
 		const { id } = input.input
 		const dayOfTheWeek = new Date(date).getDay()
 		const isSaturday = (dayOfTheWeek === 6) ? true : false
-
+		
 		switch(id) {
 			case "pick-up":
 				this.setState({
 					isSaturdayPickUp: isSaturday
 				})
 				break
-			case "drop-off":
-				this.setState({
-					isSaturdayDropoff: isSaturday
-				})
-				break
-			default:
-				break
-		}
-	}
-
-	listOfTimings(isSaturday) {
-		const saturdayTimings = ["08:00", "09:00", "10:00"]
-
-		const restOfTheWeekTimings = [
-			"09:00", "10:00", "11:00", "12:00", "13:00", 
-			"14:00", "15:00", "16:00", "17:00"
+				case "drop-off":
+					this.setState({
+						isSaturdayDropoff: isSaturday
+					})
+					break
+					default:
+						break
+					}
+				}
+				
+				listOfTimings(isSaturday) {
+					const saturdayTimings = ["08:00", "09:00", "10:00"]
+					
+					const restOfTheWeekTimings = [
+						"09:00", "10:00", "11:00", "12:00", "13:00", 
+						"14:00", "15:00", "16:00", "17:00"
 		]
 
 		return isSaturday ? 
 			saturdayTimings.map(( item, id ) => <option key={id}>{item}</option>) :
 			restOfTheWeekTimings.map(( item, id ) => <option key={id}>{item}</option>)		
-	}
-	
-	publicHolidays() {
-		const year = 2020
-		// Jan = 0, Feb = 1, ... Dec = 11
-		// https://www.mom.gov.sg/newsroom/press-releases/2019/0408-public-holidays-for-2020
-		const dates = [
-			{	month: 0,	day: 1 },
-			{	month: 0,	day: 25 },
-			{	month: 0,	day: 26 },
-			{	month: 0,	day: 27 },
-			{	month: 3,	day: 10 },
-			{	month: 4,	day: 1 },
-			{	month: 4,	day: 7	},
-			{	month: 4,	day: 24	},
-			{	month: 4,	day: 25	},
-			{	month: 6,	day: 31 },
-			{	month: 7,	day: 9 },
-			{	month: 7,	day: 10 },
-			{	month: 10, day: 14	},
-			{	month: 11, day: 25 },
-		]
+		}
+		
+		publicHolidays() {
+			const year = 2020
+			// Jan = 0, Feb = 1, ... Dec = 11
+			// https://www.mom.gov.sg/newsroom/press-releases/2019/0408-public-holidays-for-2020
+			const dates = [
+				{	month: 0,	day: 1 },
+				{	month: 0,	day: 25 },
+				{	month: 0,	day: 26 },
+				{	month: 0,	day: 27 },
+				{	month: 3,	day: 10 },
+				{	month: 4,	day: 1 },
+				{	month: 4,	day: 7	},
+				{	month: 4,	day: 24	},
+				{	month: 4,	day: 25	},
+				{	month: 6,	day: 31 },
+				{	month: 7,	day: 9 },
+				{	month: 7,	day: 10 },
+				{	month: 10, day: 14	},
+				{	month: 11, day: 25 },
+			]
+			
+			return (dates.map( date => (
+				new Date(year, date.month, date.day)
+				)))
+			}
+			
+			render() {
+				const inputField = [
+					{
+						controlId: "pick-up",
+						formLabel: "Pick-up Date:",
+						timeId: "pick-up-time"
+					},
+					{
+						controlId: "drop-off",
+						formLabel: "Drop-off Date:",
+						timeId: "drop-off-time"
+					}
+				]
 
-		return (dates.map( date => (
-			new Date(year, date.month, date.day)
-		)))
-	}
-	
-	render() {
-		return(
-			<Form className="my-3">
+				return(
+					<Form className="my-3">
 				<Form.Row>
 					<Col md={12} lg={true}>
 						<Form.Group controlId="location">
@@ -108,10 +108,10 @@ class VehicleSearch extends Component {
 								style={{
 									backgroundColor: "#d8d8d8"
 								}}
-							/>
+								/>
 						</Form.Group>
 					</Col>
-					{this.inputField.map(( item, id ) => (
+					{ inputField.map(( item, id ) => (
 						<Col md={6} lg={true} key={id}>
 							<Form.Group controlId={item.controlId}>
 								<Form.Label>{item.formLabel}</Form.Label>
