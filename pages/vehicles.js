@@ -3,8 +3,10 @@ import React, { Component } from "react";
 import Default from "Components/Layout/PageTemplates/Default";
 import Breadcrumb from "Components/Common/Breadcrumb"
 import fetch from "isomorphic-unfetch"
+import "../assets/styles/vehicles.css"
 
 import Filter from "Components/VehicleList/Filter"
+import VehicleList from "Components/VehicleList/VehicleList"
 import CtaCarlist from "Components/CallToAction/CtaCarlist"
 
 // /vehicles/[vehicleType]/[vehicleCategory]
@@ -39,12 +41,16 @@ class Vehicles extends Component {
 					<Breadcrumb title="pending dynamic breadcrumb"/>
 				</div>
 				<div className="container">
-					<Filter />
-					<div className="vehicles-results">
-					
+					<div className="row">
+						<div className="vehicles-filter col-md-3">
+							<Filter />
+						</div>
+						<div className="vehicles-results col-md-9">
+							<VehicleList />
+						</div>
 					</div>
 				</div>
-				<div className="jumbotron">
+				<div className="jumbotron vehicles-cta">
 					<CtaCarlist />
 				</div>
 			</Default>

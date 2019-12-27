@@ -12,8 +12,8 @@ class Filter extends Component {
 		super(props)
 		this.state = { 
 			isOpened: true,
-			toggleState: "Show",
-			toggleIcon: "fas fa-angle-down"
+			toggleState: "Hide",
+			toggleIcon: "fas fa-angle-up"
 		}
 
 		this.handleClick = this.handleClick.bind(this)
@@ -32,7 +32,7 @@ class Filter extends Component {
 		const commercialCategories = CommercialCategories.commercialCategories
 
 		return(
-			<div className="vehicles-filter col-md-3 p-0">
+			<>
 				<Button 
 					className="filter-toggle" 
 					onClick={ this.handleClick } 
@@ -65,7 +65,7 @@ class Filter extends Component {
 						}
 					</ul>
 				</Collapse>
-			</div>
+			</>
 		)
 	}
 }

@@ -10,14 +10,14 @@ import FaqInfo from "Components/Faq/FaqInfo"
 class Faq extends Component {
 	render() {
 		return(
-      		<Default>
+			<Default>
 				<div className="container">
 					<h1>Frequently Asked Questions</h1>
 					<Breadcrumb title="FAQs"/>
 				</div>
 				<div className="container">
-          			<FaqInfo />
-        		</div>
+					<FaqInfo />
+				</div>
 				<div className="container">
 					<h3 className="py-1">
 						Can't find your answer?
@@ -41,9 +41,9 @@ class Faq extends Component {
 						</div>
 					</div>
 				</div>
-      		</Default>
-    	)
-  	}
+			</Default>
+		)
+	}
 }
 
 export default Faq;

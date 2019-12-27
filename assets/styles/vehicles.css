@@ -1,0 +1,18 @@
+/* Styles for /pages/vehicles.js */
+
+/* Vehicles Filter */
+.vehicles-filter {
+  position: sticky;
+  top: 70px;
+  background-color: white;
+  z-index: 998;
+}
+
+/* Call to Action */
+.vehicles-cta {
+  background-image: url("../../images/index-hero.png");
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
