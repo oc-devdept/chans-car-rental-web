@@ -39,27 +39,43 @@ class Filter extends Component {
 					block
 				>
 					{ this.state.toggleState } Filters&nbsp;
-					<i class={ this.state.toggleIcon }></i>
+					<i className={ this.state.toggleIcon }></i>
 				</Button>
 				<Collapse isOpened={ this.state.isOpened }>
 					<ul>
-						<li className="filter-family">CARS</li>
+						<Link href="/vehicles/[vehicleType]" as="/vehicles/cars">
+							<li className="filter-family">CARS</li>
+						</Link>
 						{ carCategories.map(( item, id ) => {
 								return(
-									<li key={ id } className="filter-category">
-										{ item.catName }
-										<i className="fas fa-chevron-right"></i>
-									</li>
+									<Link 
+										href="/vehicles/cars/[vehicleCategory]" 
+										as={`/vehicles/cars/${item.catName.replace(/\s+/g, '-').toLowerCase()}`}
+										key={id}
+									>
+										<li className="filter-category">
+											{ item.catName }
+											<i className="fas fa-chevron-right"></i>
+										</li>
+									</Link>
 								)
 							})	
 						}
-						<li className="filter-family">COMMERCIAL</li>
+						<Link href="/vehicles/[vehicleType]" as="/vehicles/commercial">
+							<li className="filter-family">COMMERCIAL</li>
+						</Link>
 						{ commercialCategories.map(( item, id ) => {
 								return(
-									<li key={ id } className="filter-category">
-										{ item.catName }
-										<i className="fas fa-chevron-right"></i>
-									</li>
+									<Link 
+										href="/vehicles/commercial/[vehicleCategory]" 
+										as={`/vehicles/commercial/${item.catName.replace(/\s+/g, '-').toLowerCase()}`}
+										key={id}
+									>
+										<li className="filter-category">
+											{ item.catName }
+											<i className="fas fa-chevron-right"></i>
+										</li>
+									</Link>
 								)
 							})	
 						}

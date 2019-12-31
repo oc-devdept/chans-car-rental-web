@@ -1,5 +1,10 @@
 /* Styles for /pages/vehicles.js */
 
+/* Vehicle Title */
+.vehicle-title h1 {
+  text-transform: capitalize;
+}
+
 /* Vehicles Filter */
 .vehicles-filter {
   position: sticky;
