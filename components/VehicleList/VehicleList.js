@@ -1,26 +1,30 @@
 import React from "react"
 import VehicleItem from "./VehicleItem"
+import "../../assets/styles/vehicle-list.css"
 
 import carList from "../../data/car-list.json"
 
-function VehicleList(props) {
+// This component should eventually be taking in props from an api call
+// to dynamically display data
+const VehicleList = (props) => {
+  const cars = carList["car-list"]
+
   return(
     <>
-      {console.log(Object.values(carList))}
-      { Object.values(carList).map(( item, id ) => {
-        console.log(id)
-        console.log(item)
-        // <VehicleItem 
-        //   key={ id }
-        //   image={ item.img }
-        //   category={ item.catId }
-        //   name={ item.name }
-        //   person={ item.person }
-        //   luggage={ item.luggage }
-        //   doors={ item.doors }
-        //   transmission={ item.transmission }
-        //   price={ item.price }
-        // />  
+      { cars.map(( item, id ) => {
+        return(
+          <VehicleItem 
+            key={ id }
+            image={ item.img }
+            category={ item.catId }
+            name={ item.name }
+            person={ item.person }
+            luggage={ item.luggage }
+            doors={ item.doors }
+            transmission={ item.transmission }
+            price={ item.price }
+          />   
+        )
       })}
     </>
   )

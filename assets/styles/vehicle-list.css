@@ -1,0 +1,32 @@
+/* Styles for Components/VehicleList/VehicleList.js */
+
+/* Vehicle Item */
+.vehicle-item {
+  border: 1px solid #dee2e6;
+}
+
+/* Vehicle Properties */
+.vehicle-image,
+.vehicle-item-person, 
+.vehicle-item-luggage, 
+.vehicle-item-door, 
+.vehicle-item-transmission {
+  display: flex;
+}
+
+.vehicle-image {
+  align-items: center;
+  justify-content: center;
+}
+
+.vehicle-item-person img, 
+.vehicle-item-luggage img, 
+.vehicle-item-door img, 
+.vehicle-item-transmission img {
+  padding-right: 5px;
+}
+
+/* Vehicle Name */
+.vehicle-item-name p {
+  font-size: 20px;
+}
