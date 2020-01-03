@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Default from "Components/Layout/PageTemplates/Default";
 
 import CtaIndex from "Components/CallToAction/CtaIndex"
-import VehicleSearch from "../components/VehicleSearch/VehicleSearch";
+import VehicleSearch from "Components/VehicleSearch/VehicleSearch";
 import "../assets/styles/index.css"
 
 // Is there a better place to put this?

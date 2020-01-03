@@ -28,13 +28,16 @@ const Vehicles = () => {
   // }
 
   const router = useRouter()
-  const { vehicleCategory } = router.query
+  const { vehicleType, vehicleCategory } = router.query
 
   return(
     <Default>
       <div className="container vehicle-title">
         <h1>{ vehicleCategory.replace(/-/g, " ") }</h1>
-        <Breadcrumb title="pending dynamic breadcrumb"/>
+        <Breadcrumb 
+          title={ vehicleCategory.replace(/-/g, " ") }
+          type={ vehicleType }
+        />
       </div>
       <div className="container">
         <div className="row">

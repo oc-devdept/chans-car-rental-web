@@ -11,6 +11,12 @@
   top: 70px;
   background-color: white;
   z-index: 998;
+  height: fit-content;
+  margin-top: 15px;
+}
+
+.vehicles-results {
+  margin-top: 15px;
 }
 
 /* Call to Action */

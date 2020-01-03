@@ -5,23 +5,22 @@ import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import InputGroup from 'react-bootstrap/InputGroup'
 
+// date picker docs - https://react-day-picker.js.org/docs/getting-started
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
 // pending: update from chans on any booking restrictions
-// date picker docs - https://react-day-picker.js.org/docs/getting-started
+// todo: validating date/time input
 class VehicleSearch extends Component {
 	constructor(props) {
 		super(props)
-		this.handleDayChange = this.handleDayChange.bind(this)
-		this.listOfTimings = this.listOfTimings.bind(this)
 		this.state = {
 			isSaturdayPickUp: false,
 			isSaturdayDropoff: false,
 		}
 	}
 	
-	handleDayChange(date, modifiers, input) {
+	handleDayChange = (date, modifiers, input) => {
 		const { id } = input.input
 		const dayOfTheWeek = new Date(date).getDay()
 		const isSaturday = (dayOfTheWeek === 6) ? true : false
@@ -32,71 +31,76 @@ class VehicleSearch extends Component {
 					isSaturdayPickUp: isSaturday
 				})
 				break
-				case "drop-off":
-					this.setState({
-						isSaturdayDropoff: isSaturday
-					})
-					break
-					default:
-						break
-					}
-				}
+			case "drop-off":
+				this.setState({
+					isSaturdayDropoff: isSaturday
+				})
+				break
+			default:
+				break
+		}
+	}
 				
-				listOfTimings(isSaturday) {
-					const saturdayTimings = ["08:00", "09:00", "10:00"]
-					
-					const restOfTheWeekTimings = [
-						"09:00", "10:00", "11:00", "12:00", "13:00", 
-						"14:00", "15:00", "16:00", "17:00"
+	listOfTimings = (isSaturday) => {
+		const saturdayTimings = ["08:00", "09:00", "10:00"]
+		
+		const restOfTheWeekTimings = [
+			"09:00", "10:00", "11:00", "12:00", "13:00", 
+			"14:00", "15:00", "16:00", "17:00"
 		]
 
 		return isSaturday ? 
 			saturdayTimings.map(( item, id ) => <option key={id}>{item}</option>) :
 			restOfTheWeekTimings.map(( item, id ) => <option key={id}>{item}</option>)		
-		}
+	}
 		
-		publicHolidays() {
-			const year = 2020
-			// Jan = 0, Feb = 1, ... Dec = 11
-			// https://www.mom.gov.sg/newsroom/press-releases/2019/0408-public-holidays-for-2020
-			const dates = [
-				{	month: 0,	day: 1 },
-				{	month: 0,	day: 25 },
-				{	month: 0,	day: 26 },
-				{	month: 0,	day: 27 },
-				{	month: 3,	day: 10 },
-				{	month: 4,	day: 1 },
-				{	month: 4,	day: 7	},
-				{	month: 4,	day: 24	},
-				{	month: 4,	day: 25	},
-				{	month: 6,	day: 31 },
-				{	month: 7,	day: 9 },
-				{	month: 7,	day: 10 },
-				{	month: 10, day: 14	},
-				{	month: 11, day: 25 },
-			]
+	publicHolidays() {
+		const year = 2020
+		// Jan = 0, Feb = 1, ... Dec = 11
+		// https://www.mom.gov.sg/newsroom/press-releases/2019/0408-public-holidays-for-2020
+		const dates = [
+			{	month: 0,	day: 1 },
+			{	month: 0,	day: 25 },
+			{	month: 0,	day: 26 },
+			{	month: 0,	day: 27 },
+			{	month: 3,	day: 10 },
+			{	month: 4,	day: 1 },
+			{	month: 4,	day: 7	},
+			{	month: 4,	day: 24	},
+			{	month: 4,	day: 25	},
+			{	month: 6,	day: 31 },
+			{	month: 7,	day: 9 },
+			{	month: 7,	day: 10 },
+			{	month: 10, day: 14	},
+			{	month: 11, day: 25 },
+		]
 			
-			return (dates.map( date => (
+		return (dates.map( date => (
 				new Date(year, date.month, date.day)
-				)))
-			}
-			
-			render() {
-				const inputField = [
-					{
-						controlId: "pick-up",
-						formLabel: "Pick-up Date:",
-						timeId: "pick-up-time"
-					},
-					{
-						controlId: "drop-off",
-						formLabel: "Drop-off Date:",
-						timeId: "drop-off-time"
-					}
-				]
+			)))
+	}
 
-				return(
-					<Form className="my-3">
+	onFormSubmit = (event) => {
+		event.preventDefault()
+		window.location = "/search"
+	}
+			
+	render() {
+		const inputField = [
+			{
+				controlId: "pick-up",
+				formLabel: "Pick-up Date:",
+				timeId: "pick-up-time"
+			},
+			{
+				controlId: "drop-off",
+				formLabel: "Drop-off Date:",
+				timeId: "drop-off-time"
+			}
+		]
+
+		return(
+			<Form className="my-3" onSubmit={this.onFormSubmit}>
 				<Form.Row>
 					<Col md={12} lg={true}>
 						<Form.Group controlId="location">
@@ -108,7 +112,7 @@ class VehicleSearch extends Component {
 								style={{
 									backgroundColor: "#d8d8d8"
 								}}
-								/>
+							/>
 						</Form.Group>
 					</Col>
 					{ inputField.map(( item, id ) => (

@@ -33,8 +33,8 @@ const Vehicles = () => {
   return(
     <Default>
       <div className="container vehicle-title">
-        <h1>{ vehicleType.replace(/-/g, " ") }</h1>
-        <Breadcrumb title="pending dynamic breadcrumb"/>
+        <h1>{ vehicleType }</h1>
+        <Breadcrumb title={ vehicleType }/>
       </div>
       <div className="container">
         <div className="row">
