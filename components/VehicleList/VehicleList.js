@@ -6,7 +6,7 @@ import carList from "../../data/car-list.json"
 
 // This component should eventually be taking in props from an api call
 // to dynamically display data
-const VehicleList = (props) => {
+const VehicleList = () => {
   const cars = carList["car-list"]
 
   return(

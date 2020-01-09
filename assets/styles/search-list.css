@@ -1,0 +1,80 @@
+/* Styles for Components/VehicleSearch/SearchList.js */
+
+/* General */
+.search-item {
+  border: 1px solid #dee2e6;
+  margin-bottom: 15px;
+}
+
+.search-item-image, 
+.search-item-details, 
+.search-item-pricing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Item Properties */
+.search-item-details {
+  padding: 15px 0;
+}
+
+.search-item-category p {
+  display: inline-block;
+  border: 1px solid #dee2e6;
+  padding: 0px 5px;
+}
+
+.search-item-name p {
+  font-size: 20px;
+  color: #404040;
+  font-weight: 700;
+}
+
+.search-item-name,
+.search-item-properties {
+  margin-bottom: 10px;
+}
+
+.search-item-person,
+.search-item-luggage,
+.search-item-door,
+.search-item-transmission {
+  display: inline-flex;
+  margin-right: .5rem;
+}
+
+.search-item-properties p {
+  padding-left: .25rem;
+}
+
+.search-item-points p {
+  margin-bottom: 5px;
+}
+
+/* Item Pricing */
+.search-item-pricing {
+  border-left: 1px solid #dee2e6;
+}
+
+.search-item-pricing p {
+  margin: 0;
+}
+
+.search-item-price-text {
+  font-weight: 600;
+}
+
+.search-item-old-price {
+  color: red;
+  text-decoration: line-through;
+}
+
+.search-item-price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #404040;
+}
+
+/* TODO: mobile styles */
+/* mobile sort/filter to be fullscreen, toggled on button click like budget */

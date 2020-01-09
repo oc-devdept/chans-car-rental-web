@@ -17,11 +17,11 @@ const VehicleItem = props => {
           </div>
           <div className="vehicle-item-person">
             <img src="../../images/icon-person.png" />
-              <p>{ props.person } Person</p>
+            <p>{ props.person } Person</p>
           </div>
           <div className="vehicle-item-luggage">
             <img src="../../images/icon-luggage.png" />
-              <p>{ props.luggage } Luggages</p>
+            <p>{ props.luggage } Luggages</p>
           </div>
           <div className="vehicle-item-door">
             <img src="../../images/icon-car-door.png" />

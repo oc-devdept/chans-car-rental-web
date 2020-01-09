@@ -1,16 +1,29 @@
 import React, { Component } from "react"
-import Form from 'react-bootstrap/Form'
-import { IconButton } from '@material-ui/core';
-import { List , GridOn } from '@material-ui/icons';
+import { Form, Button } from 'react-bootstrap'
 
-// todo: implement state
-// https://www.robinwieruch.de/react-function-component#react-function-component-state
 class SearchSortbar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      
+      display: "list",
+      sort: "price-ascending"
     }
+
+    this.handleClick = this.handleClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+  }
+  
+  handleClick(style) {
+    style === "list" ?
+      this.setState({ display: "list" }) :
+      this.setState({ display: "grid" })
+  }
+
+  handleChange(event) {
+    this.setState({
+      ...this.state,
+      sort: event.target.value
+    })
   }
   
   render() {
@@ -20,12 +33,18 @@ class SearchSortbar extends Component {
           <p style={{color: "#404040", fontWeight: 600}}>Showing { this.props.noOfResults } Results</p>
         </div>
         <div className="search-display-style">
-          <IconButton>
-            <List />
-          </IconButton>
-          <IconButton>
-            <GridOn />
-          </IconButton>
+          <Button 
+            onClick={ () => this.handleClick("list") }
+            variant={ this.state.display == "list" ? "outline-primary" : "outline-secondary"}
+          >
+            <i className="fas fa-list-ul" />
+          </Button>
+          <Button 
+            onClick={ () => this.handleClick("grid") }
+            variant={ this.state.display == "grid" ? "outline-primary" : "outline-secondary" }
+          >
+            <i className="fas fa-grip-horizontal" />
+          </Button>
         </div>
         <div className="search-sort px-3">
           <Form.Group controlId="search-sort-select" style={{margin: 0}}>
@@ -38,8 +57,9 @@ class SearchSortbar extends Component {
                 border: "1px solid #dee2e6", 
                 paddingLeft: 5,
               }}
+              value={ this.state.sort }
+              onChange= { this.handleChange }
             >
-              <option disabled selected hidden>Sort by:</option>
               <option value="price-ascending">Sort by: Price - Low to High</option>
               <option value="price-descending">Sort by: Price - High to Low</option>
             </Form.Control>

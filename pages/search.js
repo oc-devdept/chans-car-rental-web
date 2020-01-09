@@ -1,8 +1,10 @@
 import React from "react"
 // Page Layout
-import Default from "Components/Layout/PageTemplates/Default";
-import VehicleSearch from "../components/VehicleSearch/VehicleSearch";
-import SearchSortbar from "../components/VehicleSearch/SearchSortbar";
+import Default from "Components/Layout/PageTemplates/Default"
+import VehicleSearch from "Components/VehicleSearch/VehicleSearch"
+import SearchSortbar from "Components/VehicleSearch/SearchSortbar"
+import SearchFilter from "Components/VehicleSearch/SearchFilter"
+import SearchList from "../components/VehicleSearch/SearchList"
 
 const Search = () => {
   return(
@@ -10,16 +12,16 @@ const Search = () => {
       <div className="container">
         <VehicleSearch />
       </div>
-      <div className="container">
-        <SearchSortbar noOfResults="3"/>
+      <div className="container mb-3">
+        <SearchSortbar noOfResults="3" />
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-md-9">
-            results
+          <div className="col-md-8 col-lg-9">
+            <SearchList />
           </div>
-          <div className="col-md-3">
-            filters
+          <div className="col-md-4 col-lg-3">
+            <SearchFilter />
           </div>
         </div>
       </div>

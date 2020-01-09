@@ -1,0 +1,41 @@
+/* Styles for Components/VehicleSearch/SearchFilter.js */
+
+/* General */
+.search-filter {
+  border: 1px solid #dee2e6;
+  padding: 16px
+}
+
+/* Vehicle Type */
+.search-filter-type {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+
+.search-filter-type button {
+  padding: 5px 10px 5px 10px;
+  border-radius: 20px;
+}
+
+/* Vehicle Categories Label */
+.search-filter legend {
+  font-size: 14px; 
+  font-weight: 600
+}
+
+/* Vehicle Categories */
+.search-filter-categories .custom-checkbox {
+  border: 1px solid #dee2e6;
+  padding: 8px 0 8px 36px;
+  margin-bottom: 10px
+}
+
+.search-filter-categories .custom-checkbox label {
+  padding-top: 1px;
+}
+
+.search-filter-categories .custom-control-input:checked~.custom-control-label::before {
+  border-color: #5FAF57;
+  background-color: #5FAF57;
+}
