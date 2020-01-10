@@ -1,0 +1,38 @@
+/* Styles for Pages/search.js */
+
+/* Filter Toggle */
+.mobile-filter-toggle {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%);
+  z-index: 999
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 767px) {
+
+  /* Search, Sort, Filter */
+  .search-page .search, 
+  .search-page .search-filter, 
+  .search-page .search-sortbar {
+    display: none!important;
+  }
+
+  .mobile-filter-toggle {
+    display: inline-block;
+  }
+
+  .mobile-filter-modal {
+    width: inherit;
+    height: inherit;
+    max-width: inherit;
+    margin: 0;
+  }
+
+  .mobile-filter-modal .modal-content {
+    height: inherit;
+    border-radius: 0;
+  }
+}
