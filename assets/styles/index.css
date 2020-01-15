@@ -1,0 +1,82 @@
+/* Styles for Pages/index.js */
+
+/* Hero */
+.index-hero {
+    height: 300px;
+    background-image: url("../../images/index-hero.png");
+    background-attachment: fixed;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+/* Searchbar */
+.index-search {
+    bottom: 100px;
+    background-color: #3787D3;
+    min-height: 250px
+}
+
+/* need to convert this in application-wide css (primary-btn) */
+.index-search button {
+    height: 45px;
+    width: 100%;
+    background-color: #5FAF57;
+    border: 1px solid #5FAF57;
+}
+
+.index-search button:hover {
+    background-color: #52994C;
+    border: 1px solid #52994C;
+    color: white;
+}
+
+/* About Us */
+.index-about-us {
+    position: relative;
+    bottom: 60px
+}
+
+.index-about-us h2 img {
+    position: relative;
+    bottom: 5px
+}
+
+/* Why Us */
+.index-why-us {
+    position: relative;
+    bottom: 20px
+}
+
+/* Call To Action */
+.index-cta {
+    background-image: url("../../images/index-hero.png");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 575px) {
+    .index-hero {
+        display: none;
+    }
+
+    .index-search, .index-about-us, .index-why-us {
+        bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 992px) { 
+    .index-hero {
+        height: 400px
+    }
+}
+
+@media only screen and (min-width: 1200px) { 
+    .index-hero {
+        height: 500px
+    }
+}

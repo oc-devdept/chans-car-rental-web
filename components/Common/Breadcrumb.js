@@ -12,7 +12,17 @@ class Breadcrumb extends Component {
                                 <a>Home</a>
                             </Link>
                         </li>
-                        <li>{this.props.title}</li>
+                        { 
+                            this.props.type && 
+                            <li style={{textTransform: "capitalize"}}>
+                                <Link href={`/vehicles/${this.props.type}`}>
+                                    <a>{this.props.type}</a>
+                                </Link>
+                            </li> 
+                        }
+                        <li style={{textTransform: "capitalize"}}>
+                            {this.props.title}
+                        </li>
                     </ul>
                 </div>
             </div>

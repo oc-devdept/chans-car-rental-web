@@ -1,0 +1,29 @@
+/* Styles for /pages/vehicles */
+
+/* Vehicle Title */
+.vehicle-title h1 {
+  text-transform: capitalize;
+}
+
+/* Vehicles Filter */
+.vehicles-filter {
+  position: sticky;
+  top: 70px;
+  background-color: white;
+  z-index: 998;
+  height: fit-content;
+  margin-top: 15px;
+}
+
+.vehicles-results {
+  margin-top: 15px;
+}
+
+/* Call to Action */
+.vehicles-cta {
+  background-image: url("../../images/index-hero.png");
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
