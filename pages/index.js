@@ -6,54 +6,53 @@ import CtaIndex from "Components/CallToAction/CtaIndex"
 import VehicleSearch from "Components/VehicleSearch/VehicleSearch";
 import "../assets/styles/index.css"
 
-// Is there a better place to put this?
-const whyUsInfo = [
-	{
-		icon: "fas fa-car",
-		title: "Modern Fleet",
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-		Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
-		amet nulla.`
-	},
-	{
-		icon: "fas fa-wallet",
-		title: "Competitive Prices",
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-		Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
-		amet nulla.`
-	},
-	{
-		icon: "fas fa-life-ring",
-		title: "Full Insurance Plan",
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-		Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
-		amet nulla.`
-	},
-	{
-		icon: "fas fa-road",
-		title: "Unlimited Milage",
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-		Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
-		amet nulla.`
-	},
-	{
-		icon: "fas fa-thumbs-up",
-		title: "Exceptional Service",
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-		Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
-		amet nulla.`
-	},
-	{
-		icon: "fas fa-wrench",
-		title: "Breakdown Assistance",
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-		Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
-		amet nulla.`
-	},
-]
-
 class Index extends Component {
 	render() {
+		const whyUsInfo = [
+			{
+				icon: "fas fa-car",
+				title: "Modern Fleet",
+				text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+				Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
+				amet nulla.`
+			},
+			{
+				icon: "fas fa-wallet",
+				title: "Competitive Prices",
+				text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+				Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
+				amet nulla.`
+			},
+			{
+				icon: "fas fa-life-ring",
+				title: "Full Insurance Plan",
+				text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+				Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
+				amet nulla.`
+			},
+			{
+				icon: "fas fa-road",
+				title: "Unlimited Milage",
+				text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+				Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
+				amet nulla.`
+			},
+			{
+				icon: "fas fa-thumbs-up",
+				title: "Exceptional Service",
+				text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+				Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
+				amet nulla.`
+			},
+			{
+				icon: "fas fa-wrench",
+				title: "Breakdown Assistance",
+				text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+				Mauris pretium nulla lacinia nisl aliquam dictum ac sit \
+				amet nulla.`
+			},
+		]
+		
 		return (
 			<Default>
 				<div className="jumbotron index-hero justify-content-center ">

@@ -1,0 +1,41 @@
+/* Styles for Components/CallToAction */
+
+.call-to-action {
+  text-align: center;
+}
+
+.call-to-action h2 {
+  padding: 1rem 0;
+  color: #ffffff;
+}
+
+.call-to-action i {
+  margin-right: .25rem;
+}
+
+.call-to-action .btn {
+  margin: 0 .5rem;
+  font-size: 14px;
+}
+
+.call-to-action .btn-primary {
+  background-color: #b72c2e;
+  border-color: #b72c2e;
+}
+
+.call-to-action .btn-primary:hover {
+  background-color: #962628;
+  border-color: #962628;
+  color: #ffffff;
+}
+
+.call-to-action .btn-outline-primary {
+  color: #b72c2e;
+  border-color: #b72c2e;
+}
+
+.call-to-action .btn-outline-primary:hover {
+  background-color: #962628;
+  border-color: #962628;
+  color: #ffffff;
+}

@@ -1,6 +1,8 @@
-import React, {Component} from "react";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import React, {Component} from "react"
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
+import "../../assets/styles/enquiry-form.css"
 
 class EnquiryForm extends Component {
 	constructor(props) {
@@ -13,10 +15,12 @@ class EnquiryForm extends Component {
 				nameError: "",
 				emailError: "",
 				messageError: ""
-			}
+			},
+			validated: false
 		}
 
 		this.handleChange = this.handleChange.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
 	handleChange(event) {
@@ -52,39 +56,54 @@ class EnquiryForm extends Component {
 		})
 	}
 
+	handleSubmit(event) {
+		const form = event.currentTarget
+		if (form.checkValidity() === false) {
+			event.preventDefault()
+			event.stopPropagation()			
+		} 
+
+		this.setState({
+			validated: true
+		})
+	}
+
 	render() {
 		return(
 			<div className="enquiry-form">
-				<Form>
+				<Form onSubmit={this.handleSubmit} validated={this.state.validated} noValidate>
 					<Form.Group controlId="formGroupName">
-						<Form.Label>Name</Form.Label>
+						<Form.Label>Name *</Form.Label>
 						<Form.Control 
 							type="text" 
 							onChange={this.handleChange}
 							isInvalid={!!this.state.errors.nameError}
+							required
 						/>
 						<Form.Control.Feedback type="invalid">
 							{this.state.errors.nameError}
 						</Form.Control.Feedback>
 					</Form.Group>
 					<Form.Group controlId="formGroupEmail">
-						<Form.Label>Email</Form.Label>
+						<Form.Label>Email *</Form.Label>
 						<Form.Control 
 							type="email" 
 							onChange={this.handleChange} 
 							isInvalid={!!this.state.errors.emailError}
+							required
 						/>
 						<Form.Control.Feedback type="invalid">
 							{this.state.errors.emailError}
 						</Form.Control.Feedback>
 					</Form.Group>
 					<Form.Group controlId="formGroupMessage">
-						<Form.Label>Message</Form.Label>
+						<Form.Label>Message *</Form.Label>
 						<Form.Control 
 							as="textarea" 
 							rows="10" 
 							onChange={this.handleChange} 
 							isInvalid={!!this.state.errors.messageError}
+							required
 						/>
 						<Form.Control.Feedback type="invalid">
 							{this.state.errors.messageError}
@@ -99,4 +118,4 @@ class EnquiryForm extends Component {
 	}
 }
 
-export default EnquiryForm;
+export default EnquiryForm

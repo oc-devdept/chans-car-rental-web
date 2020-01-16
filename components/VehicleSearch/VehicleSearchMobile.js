@@ -11,7 +11,7 @@ import 'react-day-picker/lib/style.css';
 
 // pending: update from chans on any booking restrictions
 // todo: validating date/time input
-class VehicleSearch extends Component {
+class VehicleSearchMobile extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -100,7 +100,10 @@ class VehicleSearch extends Component {
 		]
 
 		return(
-			<div className="search">
+			<div className="search-mobile">
+
+
+
 				<Form className="my-3" onSubmit={this.onFormSubmit}>
 					<Form.Row>
 						<Col md={12} lg={true}>
@@ -147,7 +150,7 @@ class VehicleSearch extends Component {
 											}}
 											inputProps={{
 												id: item.controlId,
-												readOnly: true,
+												autoComplete: "off",
 												style: {
 													height: "100%",
 													width: "100%",
@@ -200,4 +203,4 @@ class VehicleSearch extends Component {
 	}
 }
 
-export default VehicleSearch
+export default VehicleSearchMobile

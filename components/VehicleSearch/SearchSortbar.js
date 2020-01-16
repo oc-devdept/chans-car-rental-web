@@ -35,13 +35,19 @@ class SearchSortbar extends Component {
         <div className="search-display-style">
           <Button 
             onClick={ () => this.handleClick("list") }
-            variant={ this.state.display == "list" ? "outline-primary" : "outline-secondary"}
+            style={ this.state.display == "list" ? 
+              {backgroundColor: "#ffffff", borderColor:"#ffffff", color: "#5FAF57"} : 
+              {backgroundColor: "#ffffff", borderColor:"#ffffff", color: "#404040"}
+            }
           >
             <i className="fas fa-list-ul" />
           </Button>
           <Button 
             onClick={ () => this.handleClick("grid") }
-            variant={ this.state.display == "grid" ? "outline-primary" : "outline-secondary" }
+            style={ this.state.display == "grid" ? 
+              {backgroundColor: "#ffffff", borderColor:"#ffffff", color: "#5FAF57"} : 
+              {backgroundColor: "#ffffff", borderColor:"#ffffff", color: "#404040"}
+            }
           >
             <i className="fas fa-grip-horizontal" />
           </Button>
