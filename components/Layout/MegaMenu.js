@@ -62,11 +62,6 @@ class MegaMenu extends Component {
                 <ul className="navbar-nav">
                   <li className="nav-item p-relative">
                     <Link href="#">
-                      <a className="nav-link active">About Us</a>
-                    </Link>
-                  </li>
-                  <li className="nav-item p-relative">
-                    <Link href="#">
                       <a className="nav-link active">
                         Rental <i className="fas fa-chevron-down"></i>
                       </a>
@@ -80,12 +75,12 @@ class MegaMenu extends Component {
                     </ul>
                   </li>
                   <li className="nav-item p-relative">
-                    <Link href="#">
+                    <Link href="/faq">
                       <a className="nav-link active">FAQs</a>
                     </Link>
                   </li>
                   <li className="nav-item p-relative">
-                    <Link href="#">
+                    <Link href="/contact-us">
                       <a className="nav-link active">Contact Us</a>
                     </Link>
                   </li>
