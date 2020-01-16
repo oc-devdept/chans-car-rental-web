@@ -1,0 +1,12 @@
+/* Styles for Components/EnquiryForm/EnquiryForm.js */
+
+.enquiry-form .btn-primary {
+  background-color: #b72c2e;
+  border: #b72c2e;
+}
+
+.enquiry-form .btn-primary:hover {
+  background-color: #962628;
+  border-color: #962628;
+  color: #ffffff;
+}

@@ -67,3 +67,14 @@
 .vehicle-pricing a {
   padding: 10px;
 }
+
+.vehicle-pricing .btn-primary {
+  background-color:#5FAF57;
+  border-color: #5FAF57;
+}
+
+.vehicle-pricing .btn-primary:hover {
+  background-color:#52994C;
+  border-color: #52994C;
+  color: #ffffff;
+}
