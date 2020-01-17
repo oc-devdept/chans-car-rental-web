@@ -186,7 +186,8 @@ class VehicleSearch extends Component {
 								<Button 
 									type="submit" 
 									style={{
-										fontSize: 16
+										fontSize: 16,
+										width: "100%"
 									}}
 								>
 									Search
