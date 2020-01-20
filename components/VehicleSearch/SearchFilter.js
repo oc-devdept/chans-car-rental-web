@@ -71,13 +71,13 @@ class SearchFilter extends Component {
         <div className="search-filter-type">
           <Button 
             onClick={ () => this.handleClick("cars") }
-            variant={ this.props.type == "cars" ? "primary" : "secondary"}
+            variant={ this.props.type == "cars" ? "primary" : "light"}
           >
             Cars
           </Button>
           <Button 
             onClick={ () => this.handleClick("commercial") }
-            variant={ this.props.type == "commercial" ? "primary" : "secondary"}
+            variant={ this.props.type == "commercial" ? "primary" : "light"}
           >
             Commercial
           </Button>

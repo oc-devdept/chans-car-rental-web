@@ -56,6 +56,10 @@ This files table contents are outlined below>>>>>
 /*================================================
 Default CSS
 =================================================*/
+.jumbotron {
+  border-radius: 0;
+}
+
 /* @import url("https://fonts.googleapis.com/css?family=Archivo:400,400i,500,500i,600,600i,700,700i&display=swap"); */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i&display=swap");
 body {
@@ -190,15 +194,15 @@ img {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #222222;
-  border-color: #222222;
+  background-color: #5FAF57;
+  border-color: #5FAF57;
 }
 
 .btn-primary.disabled,
 .btn-primary:disabled {
   color: #ffffff;
-  background-color: #222222;
-  border-color: #222222;
+  background-color: #5FAF57;
+  border-color: #5FAF57;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active,
@@ -207,8 +211,8 @@ img {
   -webkit-box-shadow: unset;
   box-shadow: unset;
   background-color: transparent;
-  color: #222222;
-  border-color: #222222;
+  color: #5FAF57;
+  border-color: #5FAF57;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -222,9 +226,72 @@ img {
 .btn-primary:focus {
   -webkit-box-shadow: unset;
   box-shadow: unset;
+  background-color: #52994C;
+  color: #ffffff;
+  border-color: #52994C;
+}
+
+.btn-outline-primary {
   background-color: transparent;
-  color: #222222;
-  border-color: #222222;
+  color: #5FAF57;
+  border-color: #5FAF57;
+}
+
+.btn-outline-primary:hover {
+  background-color:  #5FAF57;
+  color: #ffffff;
+  border-color: #5FAF57;
+}
+
+.btn-secondary {
+  color: #ffffff;
+  background-color: #b72c2e;
+  border-color: #b72c2e;
+}
+
+.btn-secondary.disabled,
+.btn-secondary:disabled {
+  color: #ffffff;
+  background-color: #b72c2e;
+  border-color: #b72c2e;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle {
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
+  background-color: transparent;
+  color: #b72c2e;
+  border-color: #b72c2e;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
+  background-color: #962628;
+  border-color: #962628;
+  color: #ffffff;
+}
+
+.btn-outline-secondary {
+  color: #b72c2e;
+  background-color: transparent;
+  border-color: #b72c2e;
+}
+
+.btn-outline-secondary:hover {
+  color: #ffffff;
+  background-color: #962628;
+  border-color: #962628;
 }
 
 .btn-light {
@@ -581,7 +648,7 @@ Navbar Area CSS
   z-index: 999;
   -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
-  background-color: #ffffff !important;
+  background-color: #b72c2e !important;
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
   animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 }
@@ -594,7 +661,7 @@ Navbar Area CSS
 }
 
 .comero-nav {
-  background-color: #ffffff;
+  background-color: #b72c2e;
   padding-top: 3px;
   padding-bottom: 3px;
 }
@@ -644,7 +711,7 @@ Navbar Area CSS
 .comero-nav .navbar .navbar-nav .nav-item a:hover,
 .comero-nav .navbar .navbar-nav .nav-item a:focus,
 .comero-nav .navbar .navbar-nav .nav-item a.active {
-  color: #222222;
+  color: #ffffff;
 }
 
 .comero-nav .navbar .navbar-nav .nav-item a i {
@@ -654,7 +721,7 @@ Navbar Area CSS
 .comero-nav .navbar .navbar-nav .nav-item:hover a,
 .comero-nav .navbar .navbar-nav .nav-item:focus a,
 .comero-nav .navbar .navbar-nav .nav-item.active a {
-  color: #222222;
+  color: #ffffff;
 }
 
 .comero-nav .navbar .navbar-nav .nav-item .dropdown-menu {
@@ -1841,9 +1908,9 @@ Main Banner Area CSS
   background-position: center center;
 }
 
-.main-banner.item-bg1 {
-  /* background-image: url(../../images/main-banner1.jpg); */
-}
+/* .main-banner.item-bg1 {
+  background-image: url(../../images/main-banner1.jpg);
+} */
 
 .main-banner-content {
   max-width: 520px;

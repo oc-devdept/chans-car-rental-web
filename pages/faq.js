@@ -11,7 +11,7 @@ class Faq extends Component {
   render() {
     return (
       <Default>
-        <div className="container">
+        <div className="container mt-3">
           <h1>Frequently Asked Questions</h1>
           <Breadcrumb title="FAQs" />
         </div>

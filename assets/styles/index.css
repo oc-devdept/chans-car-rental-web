@@ -22,14 +22,6 @@
 .index-search button {
     height: 45px;
     width: 100%;
-    background-color: #5FAF57;
-    border: 1px solid #5FAF57;
-}
-
-.index-search button:hover {
-    background-color: #52994C;
-    border: 1px solid #52994C;
-    color: white;
 }
 
 /* About Us */

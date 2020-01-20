@@ -14,7 +14,7 @@
 /* Filter Family */
 .filter-family {
     padding: 10px;
-    background-color: #5FAF57;
+    background-color: rgb(81, 150, 75);
     color: white;
     font-size: 16px;
 }
@@ -40,13 +40,16 @@
 
 /* Filter toggle for smaller screens */
 .filter-toggle {
-    background-color: white;
+    background-color: #eeeeee;
     color: #666666;
     border: none;
 }
 
-.filter-toggle:hover {
+.filter-toggle:hover, .filter-toggle:focus {
     text-decoration: underline;
+    background-color: #eeeeee;
+    color: #666666;
+    border: none;
 }
 
 /* Responsive Styles */

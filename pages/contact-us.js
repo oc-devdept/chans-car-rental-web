@@ -9,7 +9,7 @@ class ContactUs extends Component {
   render() {
     return(
       <Default>
-        <div className="container">
+        <div className="container mt-3">
           <h1>Contact Us</h1>
           <Breadcrumb title="Contact Us"/>
         </div>

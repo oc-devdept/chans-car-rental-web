@@ -123,13 +123,13 @@ class Search extends Component {
             <VehicleSearch />
           </div>
           {/* TODO: mobile vehiclesearch component */}
-          <div className="mobile-search">
+          {/* <div className="mobile-search">
             <p>363 Sembawang Road Goodlink Park</p>
             <p>
               {`${this.state.search.pickUpTime} ${this.state.search.pickUpDate} - 
               ${this.state.search.dropOffTime} ${this.state.search.dropOffDate} `}
             </p>
-          </div>
+          </div> */}
           <div className="container mb-3">
             <SearchSortbar noOfResults="3" />
           </div>
@@ -164,13 +164,14 @@ class Search extends Component {
                 <Modal.Title>Filters</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <SearchFilter 
+                {/* <SearchFilter 
                   type={ this.state.filter.type }
                   carsCategory={ this.state.filter.carsCategory }
                   commercialCategory={ this.state.filter.commercialCategory }
                   onTypeChange={ this.handleTypeChange }
                   onCategoryChange={ this.handleCategoryChange }
-                />
+                /> */}
+                Work in Progress
               </Modal.Body>
               <Modal.Footer>
                 <Button onClick={ this.handleClose }>

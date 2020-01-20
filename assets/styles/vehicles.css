@@ -5,10 +5,14 @@
   text-transform: capitalize;
 }
 
+.vehicle-title {
+  margin-top: 1rem;
+}
+
 /* Vehicles Filter */
 .vehicles-filter {
   position: sticky;
-  top: 70px;
+  top: 86px;
   background-color: white;
   z-index: 998;
   height: fit-content;
@@ -26,4 +30,13 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media only screen and (max-width: 767px) {
+  .vehicles-filter {
+    top: 66px;
+    background-color: #eeeeee;
+    margin: 15px 15px 0 15px;
+    padding: 0;
+  }
 }

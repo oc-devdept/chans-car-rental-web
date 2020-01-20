@@ -35,4 +35,10 @@
     height: inherit;
     border-radius: 0;
   }
+
+  .mobile-filter-modal .modal-content .modal-footer .btn-primary {
+    background-color: #5FAF57;
+    border-color: #5FAF57;
+    color: #ffffff;
+  }
 }

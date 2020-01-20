@@ -2,8 +2,6 @@ import React, {Component} from "react"
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-import "../../assets/styles/enquiry-form.css"
-
 class EnquiryForm extends Component {
 	constructor(props) {
 		super(props)
@@ -109,7 +107,7 @@ class EnquiryForm extends Component {
 							{this.state.errors.messageError}
 						</Form.Control.Feedback>
 					</Form.Group>
-					<Button type="submit">
+					<Button variant="secondary" type="submit">
 						Send
 					</Button>
 				</Form>

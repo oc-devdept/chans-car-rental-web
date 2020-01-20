@@ -38,7 +38,7 @@ class Filter extends Component {
 					onClick={ this.handleClick } 
 					block
 				>
-					{ this.state.toggleState } Filters&nbsp;
+					{ this.state.toggleState } Categories&nbsp;
 					<i className={ this.state.toggleIcon }></i>
 				</Button>
 				<Collapse isOpened={ this.state.isOpened }>

@@ -5,7 +5,7 @@
     width: 90%;
   }
   .comero-nav .navbar .navbar-nav .nav-item:hover .dropdown-menu {
-    height: 300px;
+    height: fit-content;
     overflow-y: auto;
     width: 100%;
     margin-top: 0;
@@ -1182,9 +1182,10 @@
     padding-bottom: 10px;
   }
   .navbar-light .navbar-toggler {
-    color: #222222;
-    border-color: #222222;
+    color: #ffffff;
+    border-color: #ffffff;
     border-radius: 0;
+    border-width: 2px;
   }
   .search-overlay.search-popup {
     width: 250px;

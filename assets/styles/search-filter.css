@@ -20,18 +20,6 @@
   border-radius: 20px;
 }
 
-.search-filter-type .btn-primary {
-  background-color: #5FAF57;
-  border-color: #5FAF57;
-  color: #ffffff;
-}
-
-.search-filter-type .btn-secondary {
-  background-color: transparent;
-  border-color: transparent;
-  color: #404040;
-}
-
 /* Vehicle Categories Label */
 .search-filter legend {
   font-size: 14px; 

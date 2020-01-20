@@ -11,22 +11,19 @@ class Footer extends Component {
           <div className="row">
             <div className="col-lg-3 col-md-6">
               <div className="single-footer-widget">
-                <div className="logo">
-                  <Link href="index.html">
-                    <a>
-                      <img src={AppConfig.appLogo} alt="logo" />
-                    </a>
-                  </Link>
-                </div>
+                <h3>Chan's Car Rental</h3>
                 <ul className="quick-links">
                   <li>
-                    <a href="#">About Us</a>
+                    <a href="/vehicles/cars">Cars</a>
                   </li>
                   <li>
-                    <a href="#">Our Vehicles</a>
+                    <a href="/vehicles/commercial">Commercial</a>
                   </li>
                   <li>
-                    <a href="#">FAQ's</a>
+                    <a href="/faq">FAQs</a>
+                  </li>
+                  <li>
+                    <a href="/contact-us">Contact Us</a>
                   </li>
                 </ul>
               </div>
@@ -39,20 +36,30 @@ class Footer extends Component {
                 <ul className="footer-contact-info">
                   <li>
                     <div className="d-flex justify-content-between">
-                      <p className="mb-0">Office</p>
                       <p className="mb-0">Phone</p>
+                      <p className="mb-0">
+                        <span style={{color:""}}>
+                          <a href="tel: +65 6753 2536"><span style={{color:"#b72c2e"}}>+65 6753 2536</span></a>
+                        </span>
+                      </p>
                     </div>
                   </li>
                   <li>
                     <div className="d-flex justify-content-between">
                       <p className="mb-0">Whatsapp</p>
-                      <p className="mb-0">Phone</p>
+                      <p className="mb-0">
+                        <a href="https://api.whatsapp.com/send?phone=6597725363"><span style={{color:"#b72c2e"}}>+65 9772 5363</span></a>
+                      </p>
                     </div>
                   </li>
                   <li>
                     <div className="d-flex justify-content-between">
                       <p className="mb-0">Email</p>
-                      <p className="mb-0">Phone</p>
+                      <p className="mb-0">
+                        <a href="mailto: sales@chans.com.sg">
+                          <span style={{color:"#b72c2e"}}>sales@chans.com.sg</span>
+                        </a>
+                      </p>
                     </div>
                   </li>
                 </ul>

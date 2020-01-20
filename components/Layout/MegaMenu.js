@@ -41,7 +41,7 @@ class MegaMenu extends Component {
             <nav className="navbar navbar-expand-md navbar-light">
               <Link href="/">
                 <a className="navbar-brand">
-                  <img src={AppConfig.appLogo} alt="logo" />
+                  <img src={AppConfig.appLogo} alt="logo" height="60%" width="60%"/>
                 </a>
               </Link>
 
@@ -55,7 +55,8 @@ class MegaMenu extends Component {
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <span className="navbar-toggler-icon"></span>
+                {/* <span className="navbar-toggler-icon"></span> */}
+                <i className="fas fa-bars" style={{color: "#ffffff", fontSize: 24}}></i>
               </button>
 
               <div className={classOne} id="navbarSupportedContent">
@@ -63,13 +64,18 @@ class MegaMenu extends Component {
                   <li className="nav-item p-relative">
                     <Link href="#">
                       <a className="nav-link active">
-                        Rental <i className="fas fa-chevron-down"></i>
+                        Vehicles <i className="fas fa-chevron-down"></i>
                       </a>
                     </Link>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <Link href="/">
-                          <a className="nav-link active">Home One</a>
+                        <Link href="/vehicles/cars">
+                          <a className="nav-link active">Cars</a>
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link href="/vehicles/commercial">
+                          <a className="nav-link active">Commercial</a>
                         </Link>
                       </li>
                     </ul>

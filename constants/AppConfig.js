@@ -1,5 +1,5 @@
 const AppConfig = {
-  appLogo: require("../images/logo.png")
+  appLogo: require("../images/chans-logo-white.png")
 };
 
 export default AppConfig;
