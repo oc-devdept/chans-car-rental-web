@@ -101,9 +101,12 @@ class VehicleSearchMobile extends Component {
 
 		return(
 			<div className="search-mobile">
-
-
-
+				<div className="search-mobile-details">
+					<p>363 Sembawang Road Goodlink Park</p>
+					<p>
+						{`${this.props.search.pickUpDate} ${this.props.search.pickUpTime} - ${this.props.search.dropOffDate} ${this.props.search.dropOffTime}`}
+					</p>
+				</div>
 				<Form className="my-3" onSubmit={this.onFormSubmit}>
 					<Form.Row>
 						<Col md={12} lg={true}>

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 // Page Layout
 import Default from "Components/Layout/PageTemplates/Default"
 import VehicleSearch from "Components/VehicleSearch/VehicleSearch"
+import VehicleSearchMobile from "Components/VehicleSearch/VehicleSearchMobile"
 import SearchSortbar from "Components/VehicleSearch/SearchSortbar"
 import SearchFilter from "Components/VehicleSearch/SearchFilter"
 import SearchList from "Components/VehicleSearch/SearchList"
@@ -121,15 +122,8 @@ class Search extends Component {
         <div className="search-page">
           <div className="container">
             <VehicleSearch />
+            <VehicleSearchMobile search={ this.state.search } />
           </div>
-          {/* TODO: mobile vehiclesearch component */}
-          {/* <div className="mobile-search">
-            <p>363 Sembawang Road Goodlink Park</p>
-            <p>
-              {`${this.state.search.pickUpTime} ${this.state.search.pickUpDate} - 
-              ${this.state.search.dropOffTime} ${this.state.search.dropOffDate} `}
-            </p>
-          </div> */}
           <div className="container mb-3">
             <SearchSortbar noOfResults="3" />
           </div>

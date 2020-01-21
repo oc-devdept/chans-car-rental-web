@@ -73,17 +73,19 @@ class Footer extends Component {
                 <ul className="footer-contact-info">
                   <li>
                     <div className="d-flex justify-content-between">
-                      <p className="mb-0">Monday - Friday</p>
-                      <p className="mb-0">Phone</p>
+                      <p className="mb-0">Mon - Fri</p>
+                      <p className="mb-0">
+                        <span style={{color:"#b72c2e"}}>8.30 am to 5.00pm</span>
+                      </p>
                     </div>
                   </li>
                   <li>
                     <div className="d-flex justify-content-between">
-                      <p className="mb-0">Saturday</p>
-                      <p className="mb-0">Phone</p>
+                      <p className="mb-0">Sat</p>
+                      <span style={{color:"#b72c2e"}}>8.30 am to 12.00pm</span>
                     </div>
                   </li>
-                  <li>Closed on Sundays and Public Holidays</li>
+                  <li>Closed on Sun and Public Holidays</li>
                 </ul>
               </div>
             </div>
