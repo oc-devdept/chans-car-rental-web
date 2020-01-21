@@ -122,7 +122,7 @@ class Search extends Component {
         <div className="search-page">
           <div className="container">
             <VehicleSearch />
-            <VehicleSearchMobile search={ this.state.search } />
+            {/* <VehicleSearchMobile search={ this.state.search } /> */}
           </div>
           <div className="container mb-3">
             <SearchSortbar noOfResults="3" />
