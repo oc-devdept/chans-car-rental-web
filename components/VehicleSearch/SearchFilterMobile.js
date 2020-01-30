@@ -5,12 +5,16 @@ import { Accordion, Card } from "react-bootstrap"
 class SearchFilterMobile extends Component {
   constructor(props){
     super(props)
+    this.state = {
+      activeKey: "0"
+    }
 
     this.handleTypeChange = this.handleTypeChange.bind(this)
     this.handleCategoryChange = this.handleCategoryChange.bind(this)
   }
   
   handleTypeChange(type) {
+    type === "cars" ? this.setState({activeKey:"0"}) : this.setState({activeKey:"1"})
     return this.props.onTypeChange(type)
   }
 
@@ -24,12 +28,12 @@ class SearchFilterMobile extends Component {
     return(
       <div className="search-filter-mobile">
         <div className="search-filter-mobile-type">
-          <Accordion defaultActiveKey="0">
+          <Accordion activeKey={this.state.activeKey}>
             <Card>
               <Accordion.Toggle 
                 as={Card.Header} 
                 eventKey="0" 
-                // onClick={ this.handleTypeChange("cars") }
+                onClick={ () => this.handleTypeChange("cars") }
               >
                 Cars
               </Accordion.Toggle>
@@ -52,7 +56,7 @@ class SearchFilterMobile extends Component {
               <Accordion.Toggle 
                 as={Card.Header} 
                 eventKey="1" 
-                // onClick={ this.handleTypeChange("commercial") }
+                onClick={ () => this.handleTypeChange("commercial") }
               >
                 Commercial
               </Accordion.Toggle>

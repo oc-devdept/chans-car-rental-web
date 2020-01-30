@@ -2,17 +2,15 @@ import React, { Component } from "react"
 // Page Layout
 import Default from "Components/Layout/PageTemplates/Default"
 import VehicleSearch from "Components/VehicleSearch/VehicleSearch"
-import VehicleSearchMobile from "Components/VehicleSearch/VehicleSearchMobile"
 import SearchSortbar from "Components/VehicleSearch/SearchSortbar"
 import SearchFilter from "Components/VehicleSearch/SearchFilter"
 import SearchList from "Components/VehicleSearch/SearchList"
 import SearchFilterMobile from "Components/VehicleSearch/SearchFilterMobile"
 import { Button, Modal } from "react-bootstrap"
-import "../assets/styles/search.css"
+import "Styles/search.css"
 
 import CarCategories from "../data/car-categories.json"
 import CommercialCategories from "../data/commercial-categories.json"
-
 
 class Search extends Component {
   constructor(props) {
@@ -23,7 +21,8 @@ class Search extends Component {
 
     // might need to store dates selected in state down the road
     this.state = {
-      showModal: false,
+      showSearchModal: false,
+      showFilterModal: false,
       filter: {
         type: "cars",
         carsCategory: { },
@@ -31,9 +30,9 @@ class Search extends Component {
       },
       search: {
         pickUpTime: "10:00",
-        pickUpDate: "1st January 2020",
+        pickUpDate: "1st Jan 2020",
         dropOffTime: "10:00",
-        dropOffDate: "3rd January 2020"
+        dropOffDate: "3rd Jan 2020"
       }
     }
 
@@ -101,18 +100,44 @@ class Search extends Component {
     }
   }
 
-  handleOpen() {
-    this.setState({
-      ...this.state,
-      showModal: true
-    })
+  handleOpen(type) {
+    switch(type) {
+      case "filter":
+        this.setState({
+          ...this.state,
+          showFilterModal: true
+        })
+        break
+      case "search":
+        this.setState({
+          ...this.state,
+          showSearchModal: true
+        })
+        break
+      default:
+        this.setState(this.state)
+        break
+    }
   }
 
-  handleClose() {
-    this.setState({
-      ...this.state,
-      showModal: false
-    })
+  handleClose(type) {
+    switch(type) {
+      case "filter":
+        this.setState({
+          ...this.state,
+          showFilterModal: false
+        })
+        break
+      case "search":
+        this.setState({
+          ...this.state,
+          showSearchModal: false
+        })
+        break
+      default:
+        this.setState(this.state)
+        break
+    }
   }
 
   render() {
@@ -121,8 +146,38 @@ class Search extends Component {
       <Default>
         <div className="search-page">
           <div className="container">
+            <div className="search-mobile-details">
+              <div className="col-10">
+                <p>363 Sembawang Road Goodlink Park</p>
+                <p>{`${this.state.search.pickUpDate}, ${this.state.search.pickUpTime} - ${this.state.search.dropOffDate}, ${this.state.search.dropOffTime}`}</p>
+              </div>
+              <div className="col-2 d-flex justify-content-center align-items-center" onClick={() => this.handleOpen("search")}>
+                <i className="far fa-edit" />
+              </div>
+            </div>
+            <div className="search-mobile">
+              <Modal
+                show={ this.state.showSearchModal }
+                onHide={ () => this.handleClose("search") }
+                dialogClassName="search-mobile-modal"
+              > 
+                <Modal.Header closeButton>
+                  <Modal.Title>
+                    <p>363 Sembawang Road Goodlink Park</p>
+                    <p>{`${this.state.search.pickUpDate}, ${this.state.search.pickUpTime} - ${this.state.search.dropOffDate}, ${this.state.search.dropOffTime}`}</p>
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <VehicleSearch />
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button onClick={ () => this.handleClose("search") } variant="outline-secondary">
+                    Close 
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </div>
             <VehicleSearch />
-            {/* <VehicleSearchMobile search={ this.state.search } /> */}
           </div>
           <div className="container mb-3">
             <SearchSortbar noOfResults="3" />
@@ -144,34 +199,33 @@ class Search extends Component {
             </div>
           </div>
           <div className="mobile-filter-toggle">
-            <Button onClick={ this.handleOpen } variant="secondary">
+            <Button onClick={ () => this.handleOpen("filter") } variant="secondary">
               <i className="fas fa-filter" /> Filter
             </Button>
           </div>
           <div className="mobile-filter">
             <Modal
-              show={ this.state.showModal }
-              onHide={ this.handleClose }
+              show={ this.state.showFilterModal }
+              onHide={ () => this.handleClose("filter") }
               dialogClassName="mobile-filter-modal"
             > 
               <Modal.Header closeButton>
                 <Modal.Title>Filters</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                {/* <SearchFilter 
+                <SearchFilterMobile 
                   type={ this.state.filter.type }
                   carsCategory={ this.state.filter.carsCategory }
                   commercialCategory={ this.state.filter.commercialCategory }
                   onTypeChange={ this.handleTypeChange }
                   onCategoryChange={ this.handleCategoryChange }
-                /> */}
-                Work in Progress
+                />
               </Modal.Body>
               <Modal.Footer>
-                <Button onClick={ this.handleClose }>
+                <Button onClick={ () => this.handleClose("filter") }>
                   Apply
                 </Button>
-                <Button onClick={ this.handleClose } variant="outline-primary">
+                <Button onClick={ () => this.handleClose("filter") } variant="outline-secondary">
                   Reset 
                 </Button>
               </Modal.Footer>

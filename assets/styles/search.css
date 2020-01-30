@@ -10,6 +10,78 @@
   z-index: 999
 }
 
+.search-mobile-details {
+  display: none;
+  padding: 1rem 0;
+  background-color: #5FAF57;
+}
+
+.search-mobile-details p, .search-mobile-details i {
+  color: #ffffff;
+  margin: 0;
+}
+
+.search-mobile-details i:hover, .search-mobile-details i:focus {
+  color: #f1f1f1;
+}
+
+.search-mobile-modal .modal-header, .mobile-filter-modal .modal-header {
+  background-color: #5FAF57;
+  border-radius: 0;
+}
+
+.search-mobile-modal .modal-title p, 
+.search-mobile-modal .modal-header .close span,
+.mobile-filter-modal .modal-title,
+.mobile-filter-modal .modal-header .close span {
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.mobile-filter-modal, .search-mobile-modal {
+  width: inherit;
+  height: inherit;
+  max-width: inherit;
+  margin: 0;
+}
+
+.mobile-filter-modal .modal-content, .search-mobile-modal .modal-content {
+  height: inherit;
+  border-radius: 0;
+}
+
+.mobile-filter-modal .modal-content .modal-body {
+  padding: 0;
+}
+
+.mobile-filter-modal .modal-body .search-filter-mobile .card {
+  border-radius: 0;
+}
+
+.mobile-filter-modal .modal-body .search-filter-mobile .card-header {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.mobile-filter-modal .modal-body .search-filter-mobile .card-body .custom-checkbox {
+  margin-bottom: 1rem;
+}
+
+.mobile-filter-modal .modal-body .search-filter-mobile .card-body .custom-checkbox label {
+  width: 100%;
+  font-size: 16px;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+  border-color: #5FAF57;
+  background-color: #5FAF57;
+}
+
+.mobile-filter-modal .modal-content .modal-footer button, 
+.search-mobile-modal .modal-content .modal-footer button {
+  width: 50%;
+}
+
 /* Responsive styles */
 @media only screen and (max-width: 767px) {
 
@@ -20,25 +92,12 @@
     display: none!important;
   }
 
+  .search-mobile-details {
+    display: flex;
+  }
+
   .mobile-filter-toggle {
     display: inline-block;
   }
 
-  .mobile-filter-modal {
-    width: inherit;
-    height: inherit;
-    max-width: inherit;
-    margin: 0;
-  }
-
-  .mobile-filter-modal .modal-content {
-    height: inherit;
-    border-radius: 0;
-  }
-
-  .mobile-filter-modal .modal-content .modal-footer .btn-primary {
-    background-color: #5FAF57;
-    border-color: #5FAF57;
-    color: #ffffff;
-  }
 }
