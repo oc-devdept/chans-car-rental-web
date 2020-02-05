@@ -2,6 +2,7 @@ import React, { Component } from "react"
 // Page Layout
 import Default from "Components/Layout/PageTemplates/Default"
 import VehicleSearch from "Components/VehicleSearch/VehicleSearch"
+import VehicleSearchMobile from "Components/VehicleSearch/VehicleSearchMobile"
 import SearchSortbar from "Components/VehicleSearch/SearchSortbar"
 import SearchFilter from "Components/VehicleSearch/SearchFilter"
 import SearchList from "Components/VehicleSearch/SearchList"
@@ -145,38 +146,8 @@ class Search extends Component {
     return(
       <Default>
         <div className="search-page">
-          <div className="container">
-            <div className="search-mobile-details">
-              <div className="col-10">
-                <p>363 Sembawang Road Goodlink Park</p>
-                <p>{`${this.state.search.pickUpDate}, ${this.state.search.pickUpTime} - ${this.state.search.dropOffDate}, ${this.state.search.dropOffTime}`}</p>
-              </div>
-              <div className="col-2 d-flex justify-content-center align-items-center" onClick={() => this.handleOpen("search")}>
-                <i className="far fa-edit" />
-              </div>
-            </div>
-            <div className="search-mobile">
-              <Modal
-                show={ this.state.showSearchModal }
-                onHide={ () => this.handleClose("search") }
-                dialogClassName="search-mobile-modal"
-              > 
-                <Modal.Header closeButton>
-                  <Modal.Title>
-                    <p>363 Sembawang Road Goodlink Park</p>
-                    <p>{`${this.state.search.pickUpDate}, ${this.state.search.pickUpTime} - ${this.state.search.dropOffDate}, ${this.state.search.dropOffTime}`}</p>
-                  </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <VehicleSearch />
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button onClick={ () => this.handleClose("search") } variant="outline-secondary">
-                    Close 
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </div>
+          <div className="container mb-3">
+            <VehicleSearchMobile />
             <VehicleSearch />
           </div>
           <div className="container mb-3">

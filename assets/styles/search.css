@@ -87,8 +87,7 @@
 
   /* Search, Sort, Filter */
   .search-page .search, 
-  .search-page .search-filter, 
-  .search-page .search-sortbar {
+  .search-page .search-filter {
     display: none!important;
   }
 
@@ -98,6 +97,10 @@
 
   .mobile-filter-toggle {
     display: inline-block;
+  }
+
+  .search-display-style {
+    display: none;
   }
 
 }

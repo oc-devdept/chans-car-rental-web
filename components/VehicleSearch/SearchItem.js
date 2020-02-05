@@ -17,19 +17,19 @@ const SearchItem = props => {
           </div>
           <div className="search-item-properties">
             <div className="search-item-person">
-              <img src="../../images/icon-person.png" />
+              <img src="Images/icon-person.png" />
               <p>{ props.person }</p>
             </div>
             <div className="search-item-luggage">
-              <img src="../../images/icon-luggage.png" />
+              <img src="Images/icon-luggage.png" />
               <p>{ props.luggage }</p>
             </div>
             <div className="search-item-door">
-              <img src="../../images/icon-car-door.png" />
+              <img src="Images/icon-car-door.png" />
               <p>{ props.doors }</p>
             </div>
             <div className="search-item-transmission">
-              <img src="../../images/icon-gearbox.png" />
+              <img src="Images/icon-gearbox.png" />
               <p>{ props.transmission }</p>
             </div>
           </div>
@@ -47,7 +47,7 @@ const SearchItem = props => {
             </div>
           </div>
           <div className="search-item-pricing-button">
-            <Button href="/">Book Now</Button>
+            <Button href="/search-extras">Book Now</Button>
           </div>
         </div>
       </div>

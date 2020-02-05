@@ -67,3 +67,13 @@
 .vehicle-pricing a {
   padding: 10px;
 }
+
+@media only screen and (max-width: 767px) {
+  .vehicle-pricing {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #dee2e6;
+  }
+}

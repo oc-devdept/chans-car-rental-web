@@ -5,7 +5,7 @@ const VehicleItem = props => {
   return(
     <div className="vehicle-item">
       <div className="row">
-        <div className="col-md-4 vehicle-image">
+        <div className="col-5 col-md-4 vehicle-image">
           <img src={ props.image } />
         </div>
         <div className="col-7 col-md-5 vehicle-properties">
@@ -32,10 +32,14 @@ const VehicleItem = props => {
             <p>{ props.transmission }</p>
           </div>
         </div>
-        <div className="col-5 col-md-3 vehicle-pricing">
-          <p>Price for 1 day:</p>
-          <p className="vehicle-price">S${ props.price }/day</p>
-          <Button href="/">Rent a car now</Button>
+        <div className="col-12 col-md-3 vehicle-pricing">
+          <div className="vehicle-pricing-text">
+            <p>Price for 1 day:</p>
+            <p className="vehicle-price">S${ props.price }/day</p>
+          </div>
+          <div className="vehicle-pricing-button">
+            <Button href="/">Rent a car now</Button>
+          </div>
         </div>  
       </div>
     </div>
