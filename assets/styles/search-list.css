@@ -7,8 +7,8 @@
   padding: 15px;
 }
 
-.search-item-image, 
-.search-item-details, 
+.search-item-image,
+.search-item-details,
 .search-item-pricing {
   display: flex;
   flex-direction: column;
@@ -45,11 +45,11 @@
 .search-item-door,
 .search-item-transmission {
   display: inline-flex;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .search-item-properties p {
-  padding-left: .25rem;
+  padding-left: 0.25rem;
 }
 
 .search-item-points p {
@@ -83,7 +83,7 @@
 /* Responsive styles */
 
 /* General */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 991px) {
   .search-item-pricing {
     border-left: none;
     border-top: 1px solid #dee2e6;
@@ -116,5 +116,5 @@
 
   .search-item-pricing-button a {
     width: 100%;
-  }  
+  }
 }
