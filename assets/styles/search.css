@@ -121,3 +121,11 @@
     display: none;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .option-seats,
+  .option-price,
+  .option-selection {
+    margin-top: 0.5rem;
+  }
+}

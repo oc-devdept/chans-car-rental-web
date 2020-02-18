@@ -13,7 +13,8 @@ const SearchExtras = props => {
     luggage: 2,
     doors: 2,
     transmission: "Auto",
-    price: 100
+    priceDay: 100,
+    priceTotal: 300
   });
 
   const [childSeats, setChildSeats] = useState(0);
@@ -27,38 +28,67 @@ const SearchExtras = props => {
           <VehicleSearch />
         </div>
         <div className="container">
-          <div className="row mb-3">
-            <div className="col-lg-3">
-              <img src="Images/car-400x300.png" />
-            </div>
-            <div className="col-lg-6 d-flex flex-column justify-content-center">
-              <div className="search-extras-name">
-                <p className="h4">{selectedVehicle.name}</p>
+          <Card className="mb-3">
+            <Card.Body>
+              <div className="row">
+                <div className="col-6 col-md-4 col-lg-3 d-flex align-items-center">
+                  <img src="Images/car-400x300.png" />
+                </div>
+                <div className="col-6 col-md-5 col-lg-6 d-flex flex-column justify-content-center">
+                  <div className="search-extras-name">
+                    <p className="h4">{selectedVehicle.name}</p>
+                  </div>
+                  <div className="search-extras-properties">
+                    <div className="search-extras-person d-inline-flex mr-1">
+                      {/* <img src="Images/icon-person.png" className="mr-1" /> */}
+                      <p>{selectedVehicle.person} Persons |</p>
+                    </div>
+                    <div className="search-extras-luggage d-inline-flex mr-1">
+                      {/* <img src="Images/icon-luggage.png" className="mr-1" /> */}
+                      <p>{selectedVehicle.luggage} Luggages |</p>
+                    </div>
+                    <div className="search-extras-door d-inline-flex mr-1">
+                      {/* <img src="Images/icon-car-door.png" className="mr-1" /> */}
+                      <p>{selectedVehicle.doors} Doors |</p>
+                    </div>
+                    <div className="search-item-transmission d-inline-flex mr-1">
+                      {/* <img src="Images/icon-gearbox.png" className="mr-1" /> */}
+                      <p>{selectedVehicle.transmission} Transmission</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="d-none d-md-flex col-md-3 col-lg-3 search-extras-price flex-column justify-content-center">
+                  <p style={{ lineHeight: 1.4 }}>
+                    <span style={{ fontSize: 20 }}>Car Hire Charges</span>{" "}
+                    <br />
+                    <span>SGD {selectedVehicle.priceDay}/day</span> <br />
+                    <span style={{ fontSize: 18, fontWeight: 600 }}>
+                      Total: SGD {selectedVehicle.priceTotal}
+                    </span>
+                  </p>
+                </div>
               </div>
-              <div className="search-extras-properties">
-                <div className="search-extras-person d-inline-flex mr-1">
-                  {/* <img src="Images/icon-person.png" className="mr-1" /> */}
-                  <p>{selectedVehicle.person} Persons |</p>
-                </div>
-                <div className="search-extras-luggage d-inline-flex mr-1">
-                  {/* <img src="Images/icon-luggage.png" className="mr-1" /> */}
-                  <p>{selectedVehicle.luggage} Luggages |</p>
-                </div>
-                <div className="search-extras-door d-inline-flex mr-1">
-                  {/* <img src="Images/icon-car-door.png" className="mr-1" /> */}
-                  <p>{selectedVehicle.doors} Doors |</p>
-                </div>
-                <div className="search-item-transmission d-inline-flex mr-1">
-                  {/* <img src="Images/icon-gearbox.png" className="mr-1" /> */}
-                  <p>{selectedVehicle.transmission} Transmission</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 search-extras-price d-flex flex-column justify-content-center">
-              <p>Car Hire Charges</p>
-              <p>SGD {selectedVehicle.price}</p>
-            </div>
-          </div>
+            </Card.Body>
+            <Card.Footer
+              className="d-md-none"
+              style={{
+                backgroundColor: "#5faf57",
+                borderColor: "#5faf57",
+                padding: ".25rem 1.25rem"
+              }}
+            >
+              <p style={{ color: "#ffffff", fontSize: 16, textAlign: "right" }}>
+                Total Car Hire Charge:{" "}
+                <span
+                  style={{
+                    fontWeight: 600
+                  }}
+                >
+                  SGD {selectedVehicle.priceTotal}
+                </span>
+              </p>
+            </Card.Footer>
+          </Card>
           <Card className="mb-3">
             <Card.Body>
               <span style={{ fontSize: 22, fontWeight: 600 }}>
@@ -67,13 +97,13 @@ const SearchExtras = props => {
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <div className="row align-items-center">
-                    <div className="option-image col-2 d-flex justify-content-center">
+                    <div className="option-image col-4 col-md-2 d-flex justify-content-center">
                       <img
                         src="Images/car-seat.png"
                         style={{ maxWidth: "50%" }}
                       />
                     </div>
-                    <div className="option-text col-6">
+                    <div className="option-text col-8 col-md-6">
                       <p>
                         <span
                           style={{
@@ -88,7 +118,7 @@ const SearchExtras = props => {
                         secured in a child seat during travel by law.
                       </p>
                     </div>
-                    <div className="option-seats col-2">
+                    <div className="option-seats col-4 col-md-2">
                       <InputGroup>
                         <InputGroup.Prepend>
                           <button
@@ -100,7 +130,7 @@ const SearchExtras = props => {
                             style={{
                               border: "none",
                               backgroundColor: "#E9EcEF",
-                              paddingLeft: "1rem"
+                              padding: "0 0.5rem"
                             }}
                           >
                             <i
@@ -116,6 +146,7 @@ const SearchExtras = props => {
                           id="childSeats"
                           disabled
                           className="text-center"
+                          style={{ padding: 0 }}
                         />
                         <InputGroup.Append>
                           <button
@@ -127,7 +158,7 @@ const SearchExtras = props => {
                             style={{
                               border: "none",
                               backgroundColor: "#E9EcEF",
-                              paddingRight: "1rem"
+                              padding: "0 0.5rem"
                             }}
                           >
                             <i
@@ -140,22 +171,20 @@ const SearchExtras = props => {
                         </InputGroup.Append>
                       </InputGroup>
                     </div>
-                    <div className="option-price col-2">
-                      <p style={{ fontWeight: 600, textAlign: "center" }}>
-                        SGD 30.00/rental
-                      </p>
+                    <div className="option-price col-8 col-md-2">
+                      <p style={{ fontWeight: 600 }}>SGD 30.00/rental</p>
                     </div>
                   </div>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <div className="row align-items-center">
-                    <div className="option-image col-2 d-flex justify-content-center">
+                    <div className="option-image col-4 col-md-2 d-flex justify-content-center">
                       <img
                         src="Images/malaysia.png"
                         style={{ maxWidth: "50%" }}
                       />
                     </div>
-                    <div className="option-text col-6">
+                    <div className="option-text col-8 col-md-6">
                       <p>
                         <span style={{ fontSize: 16, fontWeight: 600 }}>
                           Travel to Malaysia
@@ -163,23 +192,27 @@ const SearchExtras = props => {
                         <br />
                         Additional charges may be incurred for travelling to
                         Malaysia with our vehicles. Read our{" "}
-                        <span className="d-inline-block">
-                          <a href="#">Terms and Conditions</a>
-                        </span>{" "}
+                        <a href="#" className="d-inline">
+                          Terms and Conditions
+                        </a>{" "}
                         for the full information.
                       </p>
                     </div>
-                    <div className="option-selection col-4 d-flex align-items-center">
+                    <div className="option-selection col-12 col-md-4 d-flex align-items-center">
                       <Form.Check
                         type="checkbox"
                         label=""
                         id="malaysiaTravel"
                         value={malaysiaTravel}
                         onChange={() => setMalaysiaTravel(!malaysiaTravel)}
-                      ></Form.Check>
+                      />
                       <p style={{ lineHeight: 1.2 }}>
                         By selecting this option, you understand and agree to
-                        the Terms and Conditions stated.
+                        the{" "}
+                        <a href="#" className="d-inline">
+                          Terms and Conditions
+                        </a>{" "}
+                        stated.
                       </p>
                     </div>
                   </div>
@@ -221,7 +254,7 @@ const SearchExtras = props => {
                 <li>Loss of car key</li>
                 <li>Other miscellaneous fees</li>
               </ul>
-              <a href="#" target="_blank" className="d-inline-block">
+              <a href="#" target="_blank" className="d-inline">
                 View the complete breakdown of possible charges here
               </a>
             </Card.Body>
@@ -229,22 +262,20 @@ const SearchExtras = props => {
               <Button
                 variant="outline-primary"
                 href="#"
-                className="mx-2 rounded"
+                className="mx-2 rounded d-flex flex-column justify-content-center"
                 style={{ flex: "0 1 200px" }}
               >
                 <span style={{ fontWeight: 600, fontSize: 20 }}>
                   Book without
                 </span>
-                <br />
                 Full Coverage
               </Button>
               <Button
                 href="#"
-                className="mx-2 rounded"
+                className="mx-2 rounded d-flex flex-column justify-content-center"
                 style={{ flex: "0 1 200px" }}
               >
                 <span style={{ fontWeight: 600, fontSize: 20 }}>Book with</span>
-                <br />
                 Full Coverage
               </Button>
             </Card.Footer>
