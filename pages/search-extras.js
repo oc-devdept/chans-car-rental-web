@@ -261,7 +261,7 @@ const SearchExtras = props => {
             <Card.Footer className="d-flex justify-content-end">
               <Button
                 variant="outline-primary"
-                href="#"
+                href="/checkout"
                 className="mx-2 rounded d-flex flex-column justify-content-center"
                 style={{ flex: "0 1 200px" }}
               >
@@ -271,7 +271,7 @@ const SearchExtras = props => {
                 Full Coverage
               </Button>
               <Button
-                href="#"
+                href="/checkout"
                 className="mx-2 rounded d-flex flex-column justify-content-center"
                 style={{ flex: "0 1 200px" }}
               >
