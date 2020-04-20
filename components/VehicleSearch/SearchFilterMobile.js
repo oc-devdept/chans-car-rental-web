@@ -15,13 +15,13 @@ class SearchFilterMobile extends Component {
   
   handleTypeChange(type) {
     type === "cars" ? this.setState({activeKey:"0"}) : this.setState({activeKey:"1"})
-    return this.props.onTypeChange(type)
+    return this.props.handleTypeChange(type)
   }
 
   handleCategoryChange(event) {
     const { id, checked } = event.target
     const { type } = this.props
-    return this.props.onCategoryChange(type, id, checked)
+    return this.props.handleCategoryChange(type, id, checked)
   }
 
   render() {

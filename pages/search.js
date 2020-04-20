@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Router from "next/router";
+import { connect } from "react-redux";
 // Page Layout
 import Default from "Components/Layout/PageTemplates/Default";
 import VehicleSearch from "Components/VehicleSearch/VehicleSearch";
@@ -10,39 +12,21 @@ import SearchFilterMobile from "Components/VehicleSearch/SearchFilterMobile";
 import { Button, Modal } from "react-bootstrap";
 import "Styles/search.css";
 
-import CarCategories from "../data/car-categories.json";
-import CommercialCategories from "../data/commercial-categories.json";
+import {
+  getCategories,
+  getSearch,
+  updateSelectedVehicle,
+} from "Ducks/rent/RentActions";
 
 class Search extends Component {
   constructor(props) {
     super(props);
 
-    const { carCategories } = CarCategories;
-    const { commercialCategories } = CommercialCategories;
-
-    // might need to store dates selected in state down the road
     this.state = {
       showSearchModal: false,
       showFilterModal: false,
-      filter: {
-        type: "cars",
-        carsCategory: {},
-        commercialCategory: {}
-      },
-      search: {
-        pickUpTime: "10:00",
-        pickUpDate: "1st Jan 2020",
-        dropOffTime: "10:00",
-        dropOffDate: "3rd Jan 2020"
-      }
+      filter: {},
     };
-
-    carCategories.forEach(item => {
-      this.state.filter.carsCategory[item.catName] = false;
-    });
-    commercialCategories.forEach(item => {
-      this.state.filter.commercialCategory[item.catName] = false;
-    });
 
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -50,55 +34,54 @@ class Search extends Component {
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
   }
 
-  handleTypeChange(type) {
-    type === "cars"
-      ? this.setState({
-          ...this.state,
-          filter: {
-            ...this.state.filter,
-            type: "cars"
-          }
-        })
-      : this.setState({
-          ...this.state,
-          filter: {
-            ...this.state.filter,
-            type: "commercial"
-          }
-        });
+  componentDidMount() {
+    if (Object.keys(this.props.RentState.SearchParameters).length === 0) {
+      Router.replace("/");
+    } else {
+      this.props.getCategories();
+    }
   }
 
-  handleCategoryChange(type, id, checked) {
-    switch (type) {
-      case "cars":
-        this.setState({
-          ...this.state,
-          filter: {
-            ...this.state.filter,
-            carsCategory: {
-              ...this.state.filter.carsCategory,
-              [id]: checked
-            }
-          }
+  componentDidUpdate(prevProps) {
+    // Pull category data from redux and populates local state for state
+    if (this.props.RentState.Categories !== prevProps.RentState.Categories) {
+      const data = this.props.RentState.Categories;
+      let initState = { selected: null, categoryData: {} };
+      Object.values(data).map((category) => {
+        initState.categoryData[category.name] = {};
+        category.data.forEach((subcategory) => {
+          initState.categoryData[category.name][subcategory.catName] = false;
         });
-        break;
-      case "commercial":
-        this.setState({
-          ...this.state,
-          filter: {
-            ...this.state.filter,
-            commercialCategory: {
-              ...this.state.filter.commercialCategory,
-              [id]: checked
-            }
-          }
-        });
-        break;
-      default:
-        this.setState(this.state);
-        console.log("switch default case");
-        break;
+      });
+      initState.selected = Object.keys(initState.categoryData)[0];
+      this.setState({
+        ...this.state,
+        filter: initState,
+      });
     }
+  }
+
+  handleTypeChange(type) {
+    this.setState({
+      ...this.state,
+      filter: { ...this.state.filter, selected: type },
+    });
+  }
+
+  handleCategoryChange(selected, id, checked) {
+    this.setState({
+      ...this.state,
+      filter: {
+        ...this.state.filter,
+        categoryData: {
+          ...this.state.filter.categoryData,
+          [selected]: {
+            ...this.state.filter.categoryData[selected],
+            [id]: checked,
+          },
+        },
+      },
+    });
   }
 
   handleOpen(type) {
@@ -106,13 +89,13 @@ class Search extends Component {
       case "filter":
         this.setState({
           ...this.state,
-          showFilterModal: true
+          showFilterModal: true,
         });
         break;
       case "search":
         this.setState({
           ...this.state,
-          showSearchModal: true
+          showSearchModal: true,
         });
         break;
       default:
@@ -126,13 +109,13 @@ class Search extends Component {
       case "filter":
         this.setState({
           ...this.state,
-          showFilterModal: false
+          showFilterModal: false,
         });
         break;
       case "search":
         this.setState({
           ...this.state,
-          showSearchModal: false
+          showSearchModal: false,
         });
         break;
       default:
@@ -142,13 +125,17 @@ class Search extends Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log("props= ", this.props);
+    // console.log("state= ", this.state);
     return (
       <Default>
         <div className="search-page">
           <div className="container mb-3">
             <VehicleSearchMobile />
-            <VehicleSearch />
+            <VehicleSearch
+              searchParameters={this.props.RentState.SearchParameters}
+              getSearch={this.props.getSearch}
+            />
           </div>
           <div className="container mb-3">
             <SearchSortbar noOfResults="3" />
@@ -160,11 +147,9 @@ class Search extends Component {
               </div>
               <div className="col-lg-3">
                 <SearchFilter
-                  type={this.state.filter.type}
-                  carsCategory={this.state.filter.carsCategory}
-                  commercialCategory={this.state.filter.commercialCategory}
-                  onTypeChange={this.handleTypeChange}
-                  onCategoryChange={this.handleCategoryChange}
+                  filter={this.state.filter}
+                  handleTypeChange={this.handleTypeChange}
+                  handleCategoryChange={this.handleCategoryChange}
                 />
               </div>
             </div>
@@ -188,11 +173,12 @@ class Search extends Component {
               </Modal.Header>
               <Modal.Body>
                 <SearchFilterMobile
+                  filter={this.state.filter}
                   type={this.state.filter.type}
                   carsCategory={this.state.filter.carsCategory}
                   commercialCategory={this.state.filter.commercialCategory}
-                  onTypeChange={this.handleTypeChange}
-                  onCategoryChange={this.handleCategoryChange}
+                  handleTypeChange={this.handleTypeChange}
+                  handleCategoryChange={this.handleCategoryChange}
                 />
               </Modal.Body>
               <Modal.Footer>
@@ -214,4 +200,13 @@ class Search extends Component {
   }
 }
 
-export default Search;
+const mapStateToProps = (state) => {
+  const { RentState } = state;
+  return { RentState };
+};
+
+export default connect(mapStateToProps, {
+  getCategories,
+  getSearch,
+  updateSelectedVehicle,
+})(Search);

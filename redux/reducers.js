@@ -3,11 +3,11 @@
  */
 import { combineReducers } from "redux";
 
-import { LeadReducer } from "Ducks/lead";
+import { RentReducer } from "Ducks/rent";
 
 const reducers = combineReducers({
   // reducers
-  leadState: LeadReducer
+  RentState: RentReducer,
 });
 
 export default reducers;
