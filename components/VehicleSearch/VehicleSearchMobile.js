@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import VehicleSearch from "Components/VehicleSearch/VehicleSearch";
 
-const VehicleSearchMobile = props => {
+const VehicleSearchMobile = (props) => {
   const [tempDateTime, setTempDateTime] = useState({
     pickUpDate: "1st Jan 2020",
     pickUpTime: "10:00",
     dropOffDate: "3rd Jan 2020",
-    dropOffTime: "10:00"
+    dropOffTime: "10:00",
   });
   const [showSearchModal, setShowSearchModal] = useState(false);
 
@@ -38,7 +38,10 @@ const VehicleSearchMobile = props => {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <VehicleSearch />
+            <VehicleSearch
+              searchParameters={props.searchParameters}
+              getSearch={props.getSearch}
+            />
           </Modal.Body>
           <Modal.Footer>
             <Button

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "React";
+import React, { useState, useEffect, useReducer } from "react";
 import Default from "Components/Layout/PageTemplates/Default";
 import { Card, Form } from "react-bootstrap";
 

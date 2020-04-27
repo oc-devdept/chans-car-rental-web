@@ -131,7 +131,10 @@ class Search extends Component {
       <Default>
         <div className="search-page">
           <div className="container mb-3">
-            <VehicleSearchMobile />
+            <VehicleSearchMobile
+              searchParameters={this.props.RentState.SearchParameters}
+              getSearch={this.props.getSearch}
+            />
             <VehicleSearch
               searchParameters={this.props.RentState.SearchParameters}
               getSearch={this.props.getSearch}
