@@ -7,9 +7,10 @@ import VehicleSearchMobile from "Components/VehicleSearch/VehicleSearchMobile";
 import "Styles/search.css";
 import { Card, ListGroup, Form, InputGroup, Button } from "react-bootstrap";
 
-import { getCategories, getSearch } from "Ducks/rent/RentActions";
+import { getCategories, getSearch, updateExtraOptions } from "Ducks/rent/RentActions";
 
 const SearchExtras = (props) => {
+  const { SelectedVehicle, ExtraOptions } = props;
   const [selectedVehicle, setSelectedVehicle] = useState({
     name: "Vehicle Name",
     person: 5,
@@ -22,6 +23,17 @@ const SearchExtras = (props) => {
 
   const [childSeats, setChildSeats] = useState(0);
   const [malaysiaTravel, setMalaysiaTravel] = useState(false);
+
+  const handleClick = coverage => {
+    let data = {
+      childSeats: childSeats,
+      malaysiaTravel: malaysiaTravel,
+      fullCoverage: coverage
+    };
+    
+    updateExtraOptions(data);
+    Router.push("/customerdetails");
+  };
 
   return (
     <Default>
@@ -181,7 +193,7 @@ const SearchExtras = (props) => {
                       </InputGroup>
                     </div>
                     <div className="option-price col-8 col-md-2">
-                      <p style={{ fontWeight: 600 }}>SGD 30.00/rental</p>
+                      <p style={{ fontWeight: 600 }}>SGD 30.00 /seat</p>
                     </div>
                   </div>
                 </ListGroup.Item>
@@ -270,7 +282,7 @@ const SearchExtras = (props) => {
             <Card.Footer className="d-flex justify-content-end">
               <Button
                 variant="outline-primary"
-                href="/checkout"
+                href="/customerdetails"
                 className="mx-2 rounded d-flex flex-column justify-content-center"
                 style={{ flex: "0 1 200px" }}
               >
@@ -303,4 +315,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   getCategories,
   getSearch,
+  updateExtraOptions
 })(SearchExtras);

@@ -23,15 +23,16 @@ class VehicleSearch extends Component {
     dateStart.setDate(dateStart.getDate() + 3);
     dateStart = this.disabledDateCheck(dateStart);
 
-    var dateEnd = new Date(dateNow);
-    dateEnd.setDate(dateStart.getDate() + 1);
+    var dateEnd = new Date(dateStart);
+    dateEnd.setDate(dateStart.getDate() + 4);
     dateEnd = this.disabledDateCheck(dateEnd);
 
     var dateStartLimit = new Date(dateNow);
     dateStartLimit.setMonth(dateStartLimit.getMonth() + 2);
-
+   
     var dateEndLimit = new Date(dateStartLimit);
     dateEndLimit.setDate(dateEndLimit.getDate() + 14);
+    
 
     this.state = {
       dateStart: dateStart,
@@ -131,7 +132,7 @@ class VehicleSearch extends Component {
 
     return dates.map((date) => new Date(year, date.month, date.day));
   }
-
+  
   disabledDateCheck(date) {
     let datee = new Date(date);
     const publicHolidayCheck = (date) => moment(date).isSame(moment(datee));
@@ -141,6 +142,7 @@ class VehicleSearch extends Component {
     ) {
       datee.setDate(datee.getDate() + 1);
     }
+
     return datee;
   }
 
@@ -298,7 +300,7 @@ class VehicleSearch extends Component {
           <Form.Row>
             <Col md={12} lg={true}>
               <Form.Group controlId="location">
-                <Form.Label className="text-white">
+                <Form.Label className="text-black">
                   Pick-up / Drop-off Location:
                 </Form.Label>
                 <Form.Control
@@ -314,7 +316,7 @@ class VehicleSearch extends Component {
             {inputField.map((item, id) => (
               <Col md={6} lg={true} key={id}>
                 <Form.Group controlId={item.controlId}>
-                  <Form.Label className="text-white">
+                  <Form.Label className="text-black">
                     {item.formLabel}
                   </Form.Label>
                   <br />

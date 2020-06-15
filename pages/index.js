@@ -102,7 +102,13 @@ const Index = () => {
 
   return (
     <Default>
-      <div className="index-hero jumbotron d-flex flex-column justify-content-center align-items-center">
+      <div
+        className="container d-flex flex-column
+					justify-content-center mb-4 searchCar"
+      >
+        <VehicleSearch getSearch={getSearchAction} searchParameters={SearchParameters} />
+      </div>
+      <div className="container index-hero jumbotron d-flex flex-column justify-content-center align-items-center">
         <h1
           className="text-center text-white px-4 py-3"
           style={{ backgroundColor: "rgba(1, 103, 141, 0.5)" }}
@@ -119,16 +125,6 @@ const Index = () => {
           </strong>{" "}
           with any rental from us
         </p>
-      </div>
-      <div
-        className="container d-flex flex-column 
-					justify-content-center mb-4"
-        style={{ backgroundColor: "#53B0FF", minHeight: 250 }}
-      >
-        <h2 className="my-3 text-white" style={{ fontWeight: 600 }}>
-          Search for your ideal car
-        </h2>
-        <VehicleSearch getSearch={getSearchAction} searchParameters={SearchParameters} />
       </div>
       <div className="container index-about-us border mb-4">
         <div className="row">

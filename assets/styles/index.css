@@ -1,7 +1,7 @@
 /* Styles for Pages/index.js */
 
 /* Hero */
-.index-hero {
+.index-hero { 
   height: 300px;
   background-image: url("../../images/index-hero.png");
   background-position: center center;
@@ -11,7 +11,7 @@
 
 /* Searchbar */
 .index-search {
-  background-color: #53B0FF;
+  background-color: #cfd8df;
   min-height: 250px;
 }
 
@@ -44,6 +44,11 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* search option */
+.searchCar {
+  padding: 0 20px;
 }
 
 /* Responsive Styles */
