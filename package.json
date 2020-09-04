@@ -29,7 +29,7 @@
     "next-redux-wrapper": "^3.0.0",
     "next-seo": "^2.2.1",
     "next-videos": "^1.1.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-accessible-accordion": "^3.0.0",
     "react-bootstrap": "^1.0.0-beta.16",
