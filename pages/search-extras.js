@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import Default from "Components/Layout/PageTemplates/Default";
+
 import VehicleSearch from "Components/VehicleSearch/VehicleSearch";
 import VehicleSearchMobile from "Components/VehicleSearch/VehicleSearchMobile";
 import "Styles/search.css";
@@ -34,9 +35,9 @@ const SearchExtras = (props) => {
     updateExtraOptions(data);
     Router.push("/customerdetails");
   };
-
+  
   return (
-    <Default>
+    <Default crumbs="Search Extras">
       <div className="search-extras">
         <div className="container mb-3">
           <VehicleSearchMobile
@@ -292,7 +293,7 @@ const SearchExtras = (props) => {
                 Full Coverage
               </Button>
               <Button
-                href="/checkout"
+                href="/customerdetails"
                 className="mx-2 rounded d-flex flex-column justify-content-center"
                 style={{ flex: "0 1 200px" }}
               >

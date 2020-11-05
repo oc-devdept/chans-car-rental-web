@@ -16,7 +16,12 @@ import {
     updateSelectedVehicle,
 } from "Ducks/rent/RentActions";
 
-import { isLoggedIn } from "../utils/auth";
+import { Elements } from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_3vnpI7Sjl12kIRzatYlLkFV100HLq2KTrS');
+
+// import { isLoggedIn } from "../utils/auth";
 
 const Checkout = props => {
   const dispatch = useDispatch();
@@ -28,6 +33,7 @@ const Checkout = props => {
   //     Router.replace("/");
   //   }
   // }, []);
+
   const checkoutState = useSelector(state => state.CheckoutState);
 
   // console.log("checkout props= ", props);
@@ -42,7 +48,10 @@ const Checkout = props => {
             {/* <OrderList checkoutState={checkoutState} /> */}
           </div>
           <div className="col-lg-6">
-            {props.loggedIn ? <CreditCardForm /> : <LoginOverlay />}
+            {/* {props.loggedIn ? <CreditCardForm /> : <LoginOverlay />} */}
+            <Elements stripe={stripePromise}>
+                <CreditCardForm />
+            </Elements>
           </div>
         </div>
       </div>
@@ -51,11 +60,11 @@ const Checkout = props => {
   );
 };
 
-Checkout.getInitialProps = ctx => {
-  const loggedIn = isLoggedIn(ctx);
-  // props that returned if user is logged in
-  return { loggedIn };
-};
+// Checkout.getInitialProps = ctx => {
+//   const loggedIn = isLoggedIn(ctx);
+//   // props that returned if user is logged in
+//   return { loggedIn };
+// };
 
 const mapStateToProps = state => {
   const { RentState } = state;

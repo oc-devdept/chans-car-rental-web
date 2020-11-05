@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useReducer } from "react";
-import Breadcrumb from "Components/Common/Breadcrumb";
 import { connect } from "react-redux";
 import { Card, Form, Button } from "react-bootstrap";
 import Default from "Components/Layout/PageTemplates/Default";
@@ -31,8 +30,7 @@ const Summary = ({ RentState, updatePrice }) => {
     } = RentState;
 
     return (
-        <Default>
-            <Breadcrumb title="Summary" />
+        <Default crumbs="Summary">
             <div className="container">
                 <div className="row">
                     <div className="col-md-7" style={{ marginTop: 30 }}>

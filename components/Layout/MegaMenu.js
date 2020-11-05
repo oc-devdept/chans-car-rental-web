@@ -81,7 +81,7 @@ class MegaMenu extends Component {
                     </ul>
                   </li>
                   <li className="nav-item p-relative">
-                    <Link href="#">
+                    <Link href="/login">
                       <a className="nav-link active">Sign In</a>
                     </Link>
                   </li>

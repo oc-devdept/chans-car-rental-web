@@ -8,12 +8,12 @@ import api from "Api";
 // REQUESTS
 //=========================
 const createPaymentRequest = async () => {
-  const result = await api.post(`/Stripes/createPayment`);
+  const result = await api.post(`/Stripes/createChanPayment`);
   return result.data;
 };
 
 const getPaymentRequest = async ({ payload }) => {
-  const result = await api.post(`Stripes/getPayment`, { id: payload });
+  const result = await api.post(`Stripes/getChanPayment`, { id: payload })
   return result.data;
 };
 

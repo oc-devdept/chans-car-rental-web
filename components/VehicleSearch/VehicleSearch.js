@@ -203,7 +203,7 @@ class VehicleSearch extends Component {
     event.preventDefault();
     this.props.getSearch(this.state);
     // moiboo API call goes here
-    Router.push("/search");
+    Router.push("/search")
   };
 
   render() {

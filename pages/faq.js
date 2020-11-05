@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // Page Layout
 import Default from "Components/Layout/PageTemplates/Default";
-import Breadcrumb from "Components/Common/Breadcrumb";
 // Components
 import EnquiryForm from "Components/EnquiryForm/EnquiryForm";
 import ContactInfo from "Components/ContactUs/ContactInfo";
@@ -10,10 +9,9 @@ import FaqInfo from "Components/Faq/FaqInfo";
 class Faq extends Component {
   render() {
     return (
-      <Default>
+      <Default crumbs="FAQs">
         <div className="container mt-3">
           <h1>Frequently Asked Questions</h1>
-          <Breadcrumb title="FAQs" />
         </div>
         <div className="container">
           <FaqInfo />

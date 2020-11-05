@@ -21,6 +21,7 @@ export default (state = INIT_STATE, action) => {
     case types.CREATE_PAYMENT_SUCCESS:
       var { result } = action.payload;
       localStorage.setItem("stripe-paymentIntentId", result.id);
+      console.log(action.payload);
       return {
         ...state,
         paymentIntentId: result.id,

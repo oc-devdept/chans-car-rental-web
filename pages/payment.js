@@ -27,36 +27,22 @@ import { isLoggedIn } from "../utils/auth";
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-const stripePromise = loadStripe('pk_live_2gq3ywN6oiIP4uBy80E2Mx8t00l3GaAnRc');
-
-// chan's key
-// const stripePromise = loadStripe('pk_live_2gq3ywN6oiIP4uBy80E2Mx8t00l3GaAnRc');
-
-
-// Set your secret key. Remember to switch to your live secret key in production!
-// See your keys here: https://dashboard.stripe.com/account/apikeys
-// const stripe = require('stripe')('sk_test_51GsIkSFwNpP2LSVGdowkW3jQHhT36kdR3VaKMtundWUYmAcG80fmAtTcGtCQgRjy5WnKE5I9B10B7uPMfWEQMMRX00eDs7UiuR', {apiVersion: ''});
-import StripeCheckout from 'react-stripe-checkout'
-
-
-function handleToken() {
-    console.log({ token, addresses})
-}
+const stripePromise = loadStripe('pk_test_3vnpI7Sjl12kIRzatYlLkFV100HLq2KTrS');
 
 const Payment = ({ RentState, updatePrice }) => {
 
     console.log("rentstate= ", RentState);
 
     const dispatch = useDispatch();
-    //   React.useEffect(() => {
-    //     const localCart = JSON.parse(localStorage.getItem("vc-shoppingcart"));
-    //     if (localCart) {
-    //       dispatch(getCheckout());
-    //     } else {
-    //       Router.replace("/");
-    //     }
-    //   }, []);
-    //   const checkoutState = useSelector(state => state.CheckoutState);
+    // React.useEffect(() => {
+    // const localCart = JSON.parse(localStorage.getItem("vc-shoppingcart"));
+    // if (localCart) {
+    //     dispatch(getCheckout());
+    // } else {
+    //     Router.replace("/");
+    // }
+    // }, []);
+    const checkoutState = useSelector(state => state.CheckoutState);
 
     const [selectedVehicle, setSelectedVehicle] = useState({
         name: "Vehicle Name",
@@ -74,8 +60,6 @@ const Payment = ({ RentState, updatePrice }) => {
         ExtraOptions,
         PriceBreakdown
     } = RentState;
-
-   
 
     // console.log("checkout props= ", props);
     // console.log("checkoutState= ", checkoutState);
@@ -103,7 +87,7 @@ const Payment = ({ RentState, updatePrice }) => {
                                     </div>
                                 </div>
                                 <Button
-                                    href="/driver-details"
+                                    href="/customerdetails"
                                     type="button"
                                     style={{ marginTop: 20, color: "#5cb85c" }}
                                 >
@@ -116,12 +100,7 @@ const Payment = ({ RentState, updatePrice }) => {
                                 <Elements stripe={stripePromise}>
                                     <CreditCardForm />
                                 </Elements>
-
                                 {/* {loggedIn ? <CreditCardForm /> : <LoginOverlay />} */}
-                                {/* <StripeCheckout 
-                                    stripeKey="pk_live_2gq3ywN6oiIP4uBy80E2Mx8t00l3GaAnRc"
-                                    token={handleToken}
-                                /> */}
                             </Card.Body>
                         </Card>
                     </div>
@@ -175,7 +154,7 @@ const Payment = ({ RentState, updatePrice }) => {
                                         {selectedVehicle.transmission} Transmission
                                     </p>
                                     <Button
-                                        href="/search"
+                                        href="/rent/search"
                                         type="button"
                                         style={{ marginBottom: 20 }}
                                     >

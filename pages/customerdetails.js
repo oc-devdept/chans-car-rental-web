@@ -109,7 +109,8 @@ const DriverDetails = ({ RentState, updatePrice }) => {
     doors: 2,
     transmission: "Auto",
     priceDay: 100,
-    priceTotal: 300,
+    priceTotal: 130,
+    deliveryCharge: 30,
   });
 
   const {
@@ -206,7 +207,7 @@ const DriverDetails = ({ RentState, updatePrice }) => {
                     />
                   </Form.Group>
                   <Button
-                    href="/payment"
+                    // href="/payment"
                     type="submit"
                     style={{ width: "100%", marginTop: "1rem" }}
                   >
@@ -304,7 +305,8 @@ const DriverDetails = ({ RentState, updatePrice }) => {
                   <p>
                     <span> Car Hire Charges</span>{" "}
                     <br />
-                    <span>SGD {selectedVehicle.priceDay}/day</span> <br />
+                    <span>SGD {selectedVehicle.priceDay} / day</span> <br />
+                    <span>SGD {selectedVehicle.deliveryCharge} / delivery</span> <br />
                   </p>
                   <p>
                     <span style={{ fontSize: 18, fontWeight: 600, color: "#5cb85c" }}>
@@ -371,4 +373,4 @@ export default connect(mapStateToProps, {
   getCategories,
   getSearch,
   updateSelectedVehicle,
-})(DriverDetails);
+  updatePrice,})(DriverDetails);

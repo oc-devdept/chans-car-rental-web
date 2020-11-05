@@ -15,6 +15,10 @@ import {
 } from "Ducks/payment/PaymentActions";
 import { doCheckout } from "Ducks/checkout/CheckoutActions";
 
+ // Set your secret key. Remember to switch to your live secret key in production!
+// See your keys here: https://dashboard.stripe.com/account/apikeys
+// const stripe = require('stripe')('sk_test_fjLvpTnkEjMbfAjVEMcUkTyE00scZPtYa4');
+
 const CreditCardForm = () => {
   const stripe = useStripe();
   const elements = useElements();
@@ -39,6 +43,7 @@ const CreditCardForm = () => {
     setLoading(false);
   }, []);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements || loading) {
@@ -50,6 +55,7 @@ const CreditCardForm = () => {
     }
 
     setLoading(true);
+    console.log(PaymentState.client_secret)
     const result = await stripe.confirmCardPayment(PaymentState.client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -97,9 +103,9 @@ const CreditCardForm = () => {
   return (
     <Card
       style={{
-        width: "90%",
-        maxWidth: 500,
-        margin: "2rem auto",
+        width: "100%",
+        maxWidth: 600,
+        margin: "1rem auto",
       }}
     >
       <Card.Header
@@ -141,12 +147,12 @@ const CreditCardForm = () => {
              <Button
               type="submit"
               disabled={!stripe || loading}
-              style={{ width: "100%", margin: "1.25rem 0" }}
+              style={{ width: "100%", margin: "1.25rem 0 0 0" }}
             >
               {loading ? (
                 <Loader type="TailSpin" color="#f29d30" height={18} />
               ) : (
-                "SUBMIT"
+                "Pay Now"
               )}
             </Button>
           </Form>
