@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Link from 'next/link'
 
 class EnquiryForm extends Component {
 	constructor(props) {
@@ -69,6 +70,7 @@ class EnquiryForm extends Component {
 	render() {
 		return(
 			<div className="enquiry-form">
+				<React.Fragment>
 				<Form onSubmit={this.handleSubmit} validated={this.state.validated} noValidate>
 					<Form.Group controlId="formGroupName">
 						<Form.Label>Name *</Form.Label>
@@ -107,10 +109,13 @@ class EnquiryForm extends Component {
 							{this.state.errors.messageError}
 						</Form.Control.Feedback>
 					</Form.Group>
-					<Button variant="secondary" type="submit">
-						Send
-					</Button>
+					<Link href="/thankyou">
+						<Button variant="secondary" type="submit" onSubmit={this.handleSubmit}>
+							Send
+						</Button>
+					</Link>
 				</Form>
+				</React.Fragment>
 			</div>
 		)
 	}

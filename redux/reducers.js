@@ -3,11 +3,15 @@
  */
 import { combineReducers } from "redux";
 
-import { LeadReducer } from "Ducks/lead";
+import { RentReducer } from "Ducks/rent";
+import { PaymentReducer } from "Ducks/payment";
+import { CheckoutReducer } from "Ducks/checkout";
 
 const reducers = combineReducers({
   // reducers
-  leadState: LeadReducer
+  RentState: RentReducer,
+  PaymentState: PaymentReducer,
+  CheckoutState: CheckoutReducer
 });
 
 export default reducers;

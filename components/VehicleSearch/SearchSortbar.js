@@ -60,7 +60,7 @@ class SearchSortbar extends Component {
               style={{
                 height: 30, 
                 backgroundColor: "#ffffff", 
-                border: "1px solid #dee2e6", 
+                border: "1px solid #dee2e6",
                 paddingLeft: 5,
               }}
               value={ this.state.sort }
