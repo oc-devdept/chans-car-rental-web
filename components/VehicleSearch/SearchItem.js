@@ -5,10 +5,10 @@ const SearchItem = props => {
   return (
     <div className="container search-item">
       <div className="row">
-        <div className="col-5 col-lg-4 search-item-image">
+        <div className="col-lg-4 search-item-image">
           <img src={props.image} alt={props.name} width="400" />
         </div>
-        <div className="col-7 col-lg-5 search-item-details">
+        <div className="col-lg-4 search-item-details">
           <div className="search-item-category">
             <p>category</p>
           </div>
@@ -42,15 +42,16 @@ const SearchItem = props => {
             </p>
           </div>
         </div>
-        <div className="col-lg-3 search-item-pricing">
+        <div className="col-lg-4 search-item-pricing">
           <div className="search-item-pricing-text">
-            <p className="search-item-price-text">Total price:</p>
+            <p className="search-item-price-title">Total price:</p>
             <div className="search-item-prices">
               <p className="search-item-old-price">${props.oldPrice}</p>
               <p className="search-item-price">${props.price}</p>
             </div>
+            <p className="search-item-price-side-text">Per day</p>
           </div>
-          <div className="search-item-pricing-button">
+          <div className="search-item-pricing-button" align="right">
             <Button href="/search-extras">Book Now</Button>
           </div>
         </div>

@@ -1,73 +1,77 @@
 /* Styles for Pages/index.js */
 
 /* Hero */
-.index-hero {
-    height: 300px;
-    background-image: url("../../images/index-hero.png");
-    background-attachment: fixed;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
+.index-hero { 
+  height: 300px;
+  background-image: url("../../images/index-hero.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Searchbar */
 .index-search {
-    bottom: 100px;
-    background-color: #3787D3;
-    min-height: 250px
+  background-color: #cfd8df;
+  min-height: 250px;
 }
 
 .index-search button {
-    height: 45px;
-    width: 100%;
+  height: 45px;
+  width: 100%;
 }
 
 /* About Us */
 .index-about-us {
-    position: relative;
-    bottom: 60px
+  position: relative;
+  /* bottom: 60px; */
 }
 
 .index-about-us h2 img {
-    position: relative;
-    bottom: 5px
+  position: relative;
+  /* bottom: 5px; */
 }
 
 /* Why Us */
 .index-why-us {
-    position: relative;
-    bottom: 20px
+  position: relative;
+  /* bottom: 20px; */
 }
 
 /* Call To Action */
 .index-cta {
-    background-image: url("../../images/index-hero.png");
-    background-attachment: fixed;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("../../images/index-hero.png");
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* search option */
+.searchCar {
+  padding: 0 20px;
 }
 
 /* Responsive Styles */
 @media only screen and (max-width: 575px) {
-    .index-hero {
-        display: none;
-    }
+  .index-hero {
+    display: none;
+  }
 
-    .index-search, .index-about-us, .index-why-us {
-        bottom: 0;
-    }
+  .index-search,
+  .index-about-us,
+  .index-why-us {
+    bottom: 0;
+  }
 }
 
-@media only screen and (min-width: 992px) { 
-    .index-hero {
-        height: 400px
-    }
+@media only screen and (min-width: 992px) {
+  .index-hero {
+    height: 400px;
+  }
 }
 
-@media only screen and (min-width: 1200px) { 
-    .index-hero {
-        height: 500px
-    }
+@media only screen and (min-width: 1200px) {
+  .index-hero {
+    height: 500px;
+  }
 }

@@ -1,92 +1,78 @@
-import React, { useState, useEffect, useReducer } from "React";
-import Default from "Components/Layout/PageTemplates/Default";
-import { Card, Form } from "react-bootstrap";
+import React from "react";
+import Router from "next/router";
+import Navbar from "Components/Layout/Navbar";
+import Footer from "Components/Layout/Footer";
+import Breadcrumb from "Components/Common/Breadcrumb";
+import OrderList from "Components/checkout/OrderList";
+import LoginOverlay from "Components/checkout/LoginOverlay";
+import CreditCardForm from "Components/checkout/CreditCardForm";
+
+import { useDispatch, useSelector } from "react-redux";
+import { getCheckout } from "Ducks/checkout";
+import { connect } from "react-redux";
+import {
+    getCategories,
+    getSearch,
+    updateSelectedVehicle,
+} from "Ducks/rent/RentActions";
+
+import { Elements } from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_3vnpI7Sjl12kIRzatYlLkFV100HLq2KTrS');
+
+// import { isLoggedIn } from "../utils/auth";
 
 const Checkout = props => {
-  // Local reducer to manage controlled inputs
-  const initialState = {
-    givenName: "",
-    surname: "",
-    email: "",
-    contactNumber: ""
-  };
+  const dispatch = useDispatch();
+  // React.useEffect(() => {
+  //   const localCart = JSON.parse(localStorage.getItem("vc-shoppingcart"));
+  //   if (localCart) {
+  //     dispatch(getCheckout());
+  //   } else {
+  //     Router.replace("/");
+  //   }
+  // }, []);
 
-  function reducer(state, { field, value }) {
-    return {
-      ...state,
-      [field]: value
-    };
-  }
+  const checkoutState = useSelector(state => state.CheckoutState);
 
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const { givenName, surname, email, contactNumber } = state;
-
-  const onChange = e => {
-    const { name, value } = e.target;
-    dispatch({ field: name, value: value });
-  };
-
-  // Array of input fields to render
-  const inputFields = [
-    {
-      label: "Given Name",
-      controlId: "given-name",
-      valueName: "givenName"
-    },
-    {
-      label: "Surname",
-      controlId: "surname",
-      valueName: "surname"
-    },
-    {
-      label: "Email",
-      controlId: "email",
-      valueName: "email",
-      type: "email"
-    },
-    {
-      label: "Contact Number",
-      controlId: "contact-number",
-      valueName: "contactNumber",
-      type: "tel",
-      pattern: ""
-    }
-  ];
-
+  // console.log("checkout props= ", props);
+  // console.log("checkoutState= ", checkoutState);
   return (
-    <Default>
+    <React.Fragment>
+      <Navbar />
+      <Breadcrumb title="Checkout" />
       <div className="container">
         <div className="row">
-          <div className="col-md-7">
-            <Card>
-              <Card.Body>
-                <Form>
-                  <Form.Text>Driver Details</Form.Text>
-                  <Form.Text>
-                    <span style={{ color: "red" }}>*</span> Required Fields
-                  </Form.Text>
-                  {inputFields.map((item, key) => (
-                    <Form.Group controlId={item.controlId} key={key}>
-                      <Form.Label>
-                        {item.label} <span style={{ color: "red" }}>*</span>
-                      </Form.Label>
-                      <Form.Control
-                        type={item.type}
-                        value={item.valueName}
-                        onChange={onChange}
-                      />
-                    </Form.Group>
-                  ))}
-                </Form>
-              </Card.Body>
-            </Card>
+          <div className="col-lg-6">
+            {/* <OrderList checkoutState={checkoutState} /> */}
           </div>
-          <div className="col-md-5">sidebar component</div>
+          <div className="col-lg-6">
+            {/* {props.loggedIn ? <CreditCardForm /> : <LoginOverlay />} */}
+            <Elements stripe={stripePromise}>
+                <CreditCardForm />
+            </Elements>
+          </div>
         </div>
       </div>
-    </Default>
+      <Footer />
+    </React.Fragment>
   );
 };
 
-export default Checkout;
+// Checkout.getInitialProps = ctx => {
+//   const loggedIn = isLoggedIn(ctx);
+//   // props that returned if user is logged in
+//   return { loggedIn };
+// };
+
+const mapStateToProps = state => {
+  const { RentState } = state;
+  return { RentState };
+};
+
+export default connect(mapStateToProps, {
+  getCategories,
+  getSearch,
+  updateSelectedVehicle,
+})(Checkout);

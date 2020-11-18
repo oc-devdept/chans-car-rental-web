@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
 import Default from "Components/Layout/PageTemplates/Default";
+
 import VehicleSearch from "Components/VehicleSearch/VehicleSearch";
 import VehicleSearchMobile from "Components/VehicleSearch/VehicleSearchMobile";
 import "Styles/search.css";
 import { Card, ListGroup, Form, InputGroup, Button } from "react-bootstrap";
 
-const SearchExtras = props => {
+import { getCategories, getSearch, updateExtraOptions } from "Ducks/rent/RentActions";
+
+const SearchExtras = (props) => {
+  const { SelectedVehicle, ExtraOptions } = props;
   const [selectedVehicle, setSelectedVehicle] = useState({
     name: "Vehicle Name",
     person: 5,
@@ -25,34 +30,51 @@ const SearchExtras = props => {
 
   // var checkBox = document.getElementById("malaysiaTravel");
 
-  const SetStatesDecrement = () => {
-    // console.log("decrement is working");
-    setChildSeats(childSeats - 1);
-    // console.log(childSeats);
-    setSelectedVehicle({ ...selectedVehicle, rentalPrice: selectedVehicle.rentalPrice ? 30 * (childSeats - 1): 30 });
-    // console.log(selectedVehicle.rentalPrice);
-  }
+  // const SetStatesDecrement = () => {
+  //   // console.log("decrement is working");
+  //   setChildSeats(childSeats - 1);
+  //   // console.log(childSeats);
+  //   setSelectedVehicle({ ...selectedVehicle, rentalPrice: selectedVehicle.rentalPrice ? 30 * (childSeats - 1): 30 });
+  //   // console.log(selectedVehicle.rentalPrice);
+  // }
 
-  const SetStateIncrement = () => {
-    // console.log("increment is working");
-    setChildSeats(childSeats + 1);
-    // console.log(childSeats);
-    setSelectedVehicle({ ...selectedVehicle, rentalPrice: selectedVehicle.rentalPrice ? 30 * (childSeats + 1): 30 });
-    // console.log(selectedVehicle.rentalPrice);
-  }
+  // const SetStateIncrement = () => {
+  //   // console.log("increment is working");
+  //   setChildSeats(childSeats + 1);
+  //   // console.log(childSeats);
+  //   setSelectedVehicle({ ...selectedVehicle, rentalPrice: selectedVehicle.rentalPrice ? 30 * (childSeats + 1): 30 });
+  //   // console.log(selectedVehicle.rentalPrice);
+  // }
 
-  const SetStateMalaysia = () => {
-    console.log("YYYYYY");
-    // setSelectedVehicle({ ...selectedVehicle, malaysiaPrice: 30 });
-  }
+  // const SetStateMalaysia = () => {
+  //   console.log("YYYYYY");
+  //   // setSelectedVehicle({ ...selectedVehicle, malaysiaPrice: 30 });
+  // }
 
 
+  const handleClick = coverage => {
+    let data = {
+      childSeats: childSeats,
+      malaysiaTravel: malaysiaTravel,
+      fullCoverage: coverage
+    };
+    
+    updateExtraOptions(data);
+    Router.push("/customerdetails");
+  };
+  
   return (
-    <Default>
+    <Default crumbs="Search Extras">
       <div className="search-extras">
         <div className="container mb-3">
-          <VehicleSearchMobile />
-          <VehicleSearch />
+          <VehicleSearchMobile
+            searchParameters={props.RentState.SearchParameters}
+            getSearch={props.getSearch}
+          />
+          <VehicleSearch
+            searchParameters={props.RentState.SearchParameters}
+            getSearch={props.getSearch}
+          />
         </div>
         <div className="container">
           <Card className="mb-3">
@@ -105,14 +127,14 @@ const SearchExtras = props => {
               style={{
                 backgroundColor: "#5faf57",
                 borderColor: "#5faf57",
-                padding: ".25rem 1.25rem"
+                padding: ".25rem 1.25rem",
               }}
             >
               <p style={{ color: "#ffffff", fontSize: 16, textAlign: "right" }}>
                 Total Car Hire Charge:{" "}
                 <span
                   style={{
-                    fontWeight: 600
+                    fontWeight: 600,
                   }}
                 >
                   SGD {selectedVehicle.priceTotal}
@@ -139,7 +161,7 @@ const SearchExtras = props => {
                         <span
                           style={{
                             fontSize: 16,
-                            fontWeight: 600
+                            fontWeight: 600,
                           }}
                         >
                           Child Seat
@@ -161,7 +183,7 @@ const SearchExtras = props => {
                             style={{
                               border: "none",
                               backgroundColor: "#E9EcEF",
-                              padding: "0 0.5rem"
+                              padding: "0 0.5rem",
                             }}
                           >
                             <i
@@ -189,7 +211,7 @@ const SearchExtras = props => {
                             style={{
                               border: "none",
                               backgroundColor: "#E9EcEF",
-                              padding: "0 0.5rem"
+                              padding: "0 0.5rem",
                             }}
                           >
                             <i
@@ -206,7 +228,8 @@ const SearchExtras = props => {
                       </InputGroup>
                     </div>
                     <div className="option-price col-8 col-md-2">
-                      <p style={{ fontWeight: 600 }}>SGD {selectedVehicle.rentalPrice}{selectedVehicle.rentalPriceDecimal}/rental</p>
+                      {/* <p style={{ fontWeight: 600 }}>SGD {selectedVehicle.rentalPrice}{selectedVehicle.rentalPriceDecimal}/rental</p> */}
+                      <p style={{ fontWeight: 600 }}>SGD 30.00 /seat</p>
                     </div>
                   </div>
                 </ListGroup.Item>
@@ -271,13 +294,13 @@ const SearchExtras = props => {
                   className="fas fa-shield-alt"
                   style={{
                     fontSize: 24,
-                    marginRight: "0.5rem"
+                    marginRight: "0.5rem",
                   }}
                 ></i>
                 <span
                   style={{
                     fontSize: 16,
-                    fontWeight: 600
+                    fontWeight: 600,
                   }}
                 >
                   Full coverage includes:
@@ -296,7 +319,7 @@ const SearchExtras = props => {
             <Card.Footer className="d-flex justify-content-end">
               <Button
                 variant="outline-primary"
-                href="/checkout"
+                href="/customerdetails"
                 className="mx-2 rounded d-flex flex-column justify-content-center"
                 style={{ flex: "0 1 200px" }}
               >
@@ -306,7 +329,7 @@ const SearchExtras = props => {
                 Full Coverage
               </Button>
               <Button
-                href="/checkout"
+                href="/customerdetails"
                 className="mx-2 rounded d-flex flex-column justify-content-center"
                 style={{ flex: "0 1 200px" }}
               >
@@ -321,4 +344,13 @@ const SearchExtras = props => {
   );
 };
 
-export default SearchExtras;
+const mapStateToProps = (state) => {
+  const { RentState } = state;
+  return { RentState };
+};
+
+export default connect(mapStateToProps, {
+  getCategories,
+  getSearch,
+  updateExtraOptions
+})(SearchExtras);

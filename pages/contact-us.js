@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 // Page Layout
 import Default from "Components/Layout/PageTemplates/Default";
-import Breadcrumb from "Components/Common/Breadcrumb";
 import ContactInfo from "Components/ContactUs/ContactInfo";
 import EnquiryForm from "Components/EnquiryForm/EnquiryForm";
 
 class ContactUs extends Component {
   render() {
     return(
-      <Default>
+      <Default crumbs="Contact Us">
         <div className="container mt-3">
           <h1>Contact Us</h1>
-          <Breadcrumb title="Contact Us"/>
         </div>
         <div className="container">
           <div className="row">
