@@ -142,7 +142,9 @@ class Search extends Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
+    console.log(this.props)
+    console.log(CarCategories)
     return (
       <Default>
         <div className="search-page">

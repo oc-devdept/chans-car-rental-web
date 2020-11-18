@@ -14,11 +14,38 @@ const SearchExtras = props => {
     doors: 2,
     transmission: "Auto",
     priceDay: 100,
-    priceTotal: 300
+    priceTotal: 300,
+    rentalPrice: 0,
+    malaysiaPrice: 30,
+    rentalPriceDecimal: ".00"
   });
 
   const [childSeats, setChildSeats] = useState(0);
   const [malaysiaTravel, setMalaysiaTravel] = useState(false);
+
+  // var checkBox = document.getElementById("malaysiaTravel");
+
+  const SetStatesDecrement = () => {
+    // console.log("decrement is working");
+    setChildSeats(childSeats - 1);
+    // console.log(childSeats);
+    setSelectedVehicle({ ...selectedVehicle, rentalPrice: selectedVehicle.rentalPrice ? 30 * (childSeats - 1): 30 });
+    // console.log(selectedVehicle.rentalPrice);
+  }
+
+  const SetStateIncrement = () => {
+    // console.log("increment is working");
+    setChildSeats(childSeats + 1);
+    // console.log(childSeats);
+    setSelectedVehicle({ ...selectedVehicle, rentalPrice: selectedVehicle.rentalPrice ? 30 * (childSeats + 1): 30 });
+    // console.log(selectedVehicle.rentalPrice);
+  }
+
+  const SetStateMalaysia = () => {
+    console.log("YYYYYY");
+    // setSelectedVehicle({ ...selectedVehicle, malaysiaPrice: 30 });
+  }
+
 
   return (
     <Default>
@@ -59,12 +86,16 @@ const SearchExtras = props => {
                 </div>
                 <div className="d-none d-md-flex col-md-3 col-lg-3 search-extras-price flex-column justify-content-center">
                   <p style={{ lineHeight: 1.4 }}>
-                    <span style={{ fontSize: 20 }}>Car Hire Charges</span>{" "}
-                    <br />
+                    <span style={{ fontSize: 20 }}>Car Hire Charges</span>{" "} <br />
                     <span>SGD {selectedVehicle.priceDay}/day</span> <br />
-                    <span style={{ fontSize: 18, fontWeight: 600 }}>
-                      Total: SGD {selectedVehicle.priceTotal}
-                    </span>
+                    <span>(* Additional charges may be incurred)</span> <br />
+                    {malaysiaTravel ? (
+                      <span style={{ fontSize: 18, fontWeight: 600 }}>
+                        Total: SGD {selectedVehicle.priceTotal + selectedVehicle.rentalPrice + 30}
+                      </span>
+                    ) : <span style={{ fontSize: 18, fontWeight: 600 }}>
+                          Total: SGD {selectedVehicle.priceTotal + selectedVehicle.rentalPrice}
+                        </span> }  
                   </p>
                 </div>
               </div>
@@ -124,7 +155,7 @@ const SearchExtras = props => {
                           <button
                             onClick={
                               childSeats > 0
-                                ? () => setChildSeats(childSeats - 1)
+                                ? () => SetStatesDecrement()
                                 : null
                             }
                             style={{
@@ -152,7 +183,7 @@ const SearchExtras = props => {
                           <button
                             onClick={
                               childSeats < 2
-                                ? () => setChildSeats(childSeats + 1)
+                                ? () => SetStateIncrement()
                                 : null
                             }
                             style={{
@@ -168,11 +199,14 @@ const SearchExtras = props => {
                               }
                             ></i>
                           </button>
+                          {/* {console.log("UUUUUU")}
+                          {console.log(childSeats)}
+                          {console.log(selectedVehicle.rentalPrice)} */}
                         </InputGroup.Append>
                       </InputGroup>
                     </div>
                     <div className="option-price col-8 col-md-2">
-                      <p style={{ fontWeight: 600 }}>SGD 30.00/rental</p>
+                      <p style={{ fontWeight: 600 }}>SGD {selectedVehicle.rentalPrice}{selectedVehicle.rentalPriceDecimal}/rental</p>
                     </div>
                   </div>
                 </ListGroup.Item>
@@ -187,7 +221,7 @@ const SearchExtras = props => {
                     <div className="option-text col-8 col-md-6">
                       <p>
                         <span style={{ fontSize: 16, fontWeight: 600 }}>
-                          Travel to Malaysia
+                          Travel to Malaysia (30.00 SGD/Day)
                         </span>
                         <br />
                         Additional charges may be incurred for travelling to
@@ -205,6 +239,7 @@ const SearchExtras = props => {
                         id="malaysiaTravel"
                         value={malaysiaTravel}
                         onChange={() => setMalaysiaTravel(!malaysiaTravel)}
+                        onClick={SetStateMalaysia()}
                       />
                       <p style={{ lineHeight: 1.2 }}>
                         By selecting this option, you understand and agree to

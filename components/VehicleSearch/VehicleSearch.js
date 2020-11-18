@@ -16,7 +16,9 @@ class VehicleSearch extends Component {
     super(props);
     this.state = {
       isSaturdayPickUp: false,
-      isSaturdayDropoff: false
+      isSaturdayDropoff: false,
+      pickupDate: "",
+      dropoffDate: ""
     };
   }
 
@@ -24,16 +26,18 @@ class VehicleSearch extends Component {
     const { id } = input.input;
     const dayOfTheWeek = new Date(date).getDay();
     const isSaturday = dayOfTheWeek === 6 ? true : false;
-
+    console.log(date)
     switch (id) {
       case "pick-up":
         this.setState({
-          isSaturdayPickUp: isSaturday
+          isSaturdayPickUp: isSaturday,
+          pickupDate: date
         });
         break;
       case "drop-off":
         this.setState({
-          isSaturdayDropoff: isSaturday
+          isSaturdayDropoff: isSaturday,
+          dropoffDate: date
         });
         break;
       default:
@@ -89,7 +93,7 @@ class VehicleSearch extends Component {
 
   onFormSubmit = event => {
     event.preventDefault();
-    window.location = "/search";
+    window.location = "/search?" + this.state.pickupDate + "and" + this.state.dropoffDate;
   };
 
   render() {
@@ -110,6 +114,7 @@ class VehicleSearch extends Component {
       <div className="search">
         <Form className="my-3" onSubmit={this.onFormSubmit}>
           <Form.Row>
+            {console.log(this.state)}
             <Col md={12} lg={true}>
               <Form.Group controlId="location">
                 <Form.Label>Pick-up / Drop-off Location:</Form.Label>
