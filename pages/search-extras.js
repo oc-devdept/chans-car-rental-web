@@ -262,7 +262,7 @@ const SearchExtras = (props) => {
                         id="malaysiaTravel"
                         value={malaysiaTravel}
                         onChange={() => setMalaysiaTravel(!malaysiaTravel)}
-                        onClick={SetStateMalaysia()}
+                     
                       />
                       <p style={{ lineHeight: 1.2 }}>
                         By selecting this option, you understand and agree to
