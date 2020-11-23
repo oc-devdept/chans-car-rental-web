@@ -17,6 +17,8 @@ export default (state = INIT_STATE, action) => {
       return { ...state, loading: true, SearchParameters: action.payload };
 
     case types.GET_SEARCH_SUCCESS:
+      // console.log("wefwefwefwe")
+      // console.log(action)
       return { ...state, loading: false, SearchData: action.payload };
 
     case types.GET_SEARCH_FAILURE:

@@ -13,6 +13,7 @@ const Index = () => {
   const dispatch = useDispatch();
   const { SearchParameters } = useSelector((state) => state.RentState);
   const getSearchAction = useCallback(payload => dispatch(getSearch(payload)), [dispatch])
+
   const whyUsInfo = [
     {
       icon: "fas fa-car",

@@ -1,14 +1,15 @@
 import React from "react"
 import SearchItem from "./SearchItem"
+
 import "../../assets/styles/search-list.css"
 
 import carList from "../../data/car-list.json"
 
 // This component should eventually be taking in props from an api call
 // to dynamically display data
-const SearchList = () => {
+const SearchList = (props) => {
   const cars = carList["car-list"]
-
+  const searchParameters = props.searchParameters;
   return(
     <>
     { cars.map(( item, id ) => (
@@ -23,6 +24,7 @@ const SearchList = () => {
         transmission="Auto"
         oldPrice={ item.price }
         price={ item.price }
+        searchParameters = {searchParameters}
       />
     ))}
     </>

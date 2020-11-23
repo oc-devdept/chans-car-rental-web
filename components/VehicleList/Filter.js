@@ -28,8 +28,8 @@ class Filter extends Component {
 	}
 	
 	render() {
-		const carCategories = CarCategories.carCategories
-		const commercialCategories = CommercialCategories.commercialCategories
+		const carCategories = CarCategories.data;
+		const commercialCategories = CommercialCategories.data;
 
 		return(
 			<>
@@ -38,14 +38,15 @@ class Filter extends Component {
 					onClick={ this.handleClick } 
 					block
 				>
+					{console.log(CarCategories)}
 					{ this.state.toggleState } Categories&nbsp;
 					<i className={ this.state.toggleIcon }></i>
 				</Button>
 				<Collapse isOpened={ this.state.isOpened }>
 					<ul>
-						<Link href="/vehicles/[vehicleType]" as="/vehicles/cars">
+						{/* <Link href="/vehicles/[vehicleType]" as="/vehicles/cars">
 							<li className="filter-family">CARS</li>
-						</Link>
+						</Link> */}
 						{ carCategories.map(( item, id ) => {
 								return(
 									<Link 

@@ -35,38 +35,36 @@ class VehicleSearch extends Component {
     
 
     this.state = {
-  //     isSaturdayPickUp: false,
-  //     isSaturdayDropoff: false,
-  //     pickupDate: "",
-  //     dropoffDate: ""
-  //   };
-  // }
-
-  // handleDayChange = (date, modifiers, input) => {
-  //   const { id } = input.input;
-  //   const dayOfTheWeek = new Date(date).getDay();
-  //   const isSaturday = dayOfTheWeek === 6 ? true : false;
-  //   console.log(date)
-  //   switch (id) {
-  //     case "pick-up":
-  //       this.setState({
-  //         isSaturdayPickUp: isSaturday,
-  //         pickupDate: date
-  //       });
-  //       break;
-  //     case "drop-off":
-  //       this.setState({
-  //         isSaturdayDropoff: isSaturday,
-  //         dropoffDate: date
-  //       });
-  //       break;
-  //     default:
-  //       break;
+      isSaturdayPickUp: false,
+      isSaturdayDropoff: false,
+      // pickupDate: "",
+      // dropoffDate: "",
       dateStart: dateStart,
       dateEnd: dateEnd,
       dateStartLimit: dateStartLimit,
       dateEndLimit: dateEndLimit,
     };
+
+    // handleDayChange = (date, modifiers, input) => {
+    //   const { id } = input.input;
+    //   const dayOfTheWeek = new Date(date).getDay();
+    //   const isSaturday = dayOfTheWeek === 6 ? true : false;
+    //   console.log(date)
+    //   switch (id) {
+    //     case "pick-up":
+    //       this.setState({
+    //         isSaturdayPickUp: isSaturday,
+    //         pickupDate: date
+    //       });
+    //       break;
+    //     case "drop-off":
+    //       this.setState({
+    //         isSaturdayDropoff: isSaturday,
+    //         dropoffDate: date
+    //       });
+    //       break;
+    //     default:
+    //       break;
 
     // Check if search parameters exist, else generate general search parameters
     if (Object.keys(this.props.searchParameters).length !== 0) {
@@ -231,6 +229,7 @@ class VehicleSearch extends Component {
     // window.location = "/search?" + this.state.pickupDate + "and" + this.state.dropoffDate;
     this.props.getSearch(this.state);
     // moiboo API call goes here
+    // console.log(this.state)
     Router.push("/search")
   };
 
@@ -326,7 +325,9 @@ class VehicleSearch extends Component {
           }
         >
           <Form.Row>
-            {console.log(this.state)}
+            {/* {console.log("PPPPP")}
+            {console.log(this.state.dateStart)}
+            {console.log(this.state.dateEnd)} */}
             <Col md={12} lg={true}>
               <Form.Group controlId="location">
                 <Form.Label className="text-black">

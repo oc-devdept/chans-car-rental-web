@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import Link from 'next/link';
 
 const SearchItem = props => {
   return (
@@ -52,7 +53,9 @@ const SearchItem = props => {
             <p className="search-item-price-side-text">Per day</p>
           </div>
           <div className="search-item-pricing-button" align="right">
-            <Button href="/search-extras">Book Now</Button>
+            <Link href="/search-extras">
+              <Button>Book Now</Button>
+            </Link>
           </div>
         </div>
       </div>

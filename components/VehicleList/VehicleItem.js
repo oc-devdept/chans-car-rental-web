@@ -1,5 +1,6 @@
 import React from "react"
 import Button from "react-bootstrap/Button"
+import Link from 'next/link'
 
 const VehicleItem = props => {
   return(
@@ -38,7 +39,9 @@ const VehicleItem = props => {
             <p className="vehicle-price">S${ props.price }/day</p>
           </div>
           <div className="vehicle-pricing-button">
-            <Button href="/">Rent a car now</Button>
+            {/* <Link href="/search">
+              <Button>Rent a car now</Button> 
+            </Link> */}
           </div>
         </div>  
       </div>

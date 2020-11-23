@@ -36,7 +36,7 @@ class Search extends Component {
 
   componentDidMount() {
     if (Object.keys(this.props.RentState.SearchParameters).length === 0) {
-      Router.replace("/");
+      //Router.replace("/");
     } else {
       this.props.getCategories();
     }
@@ -149,7 +149,7 @@ class Search extends Component {
           <div className="container">
             <div className="row">
               <div className="col-lg-9">
-                <SearchList />
+                <SearchList  searchParameters={this.props.RentState.SearchParameters}/>
               </div>
               <div className="col-lg-3">
                 <SearchFilter

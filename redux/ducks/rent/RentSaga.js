@@ -13,8 +13,11 @@ import commercialCategories from "../../../data/commercial-categories.json";
 //=========================
 const getSearchRequest = async ({ payload }) => {
   // const result = await api.get(`/categories/${payload.payload}`);
+  // console.log("efwefwe")
+  // console.log(payload)
+  // console.log(searchResultsData)
   const result = searchResultsData;
-  return result;
+  return payload;
 };
 
 const getCategoriesRequest = async () => {

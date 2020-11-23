@@ -98,39 +98,6 @@
             "doors": 4,
             "transmission": "Auto Transmission",
             "price": 130
-        },
-        {
-            "car_id": 9,
-            "cat_id": 13,
-            "img": "../../images/car-400x300.png",
-            "name": "test",
-            "person": 0,
-            "luggage": 0,
-            "doors": 0,
-            "transmission": "Auto Transmission",
-            "price": 0
-        },
-        {
-            "car_id": 10,
-            "cat_id": 14,
-            "img": "../../images/car-400x300.png",
-            "name": "test",
-            "person": 0,
-            "luggage": 0,
-            "doors": 0,
-            "transmission": "Auto Transmission",
-            "price": 0
-        },
-        {
-            "car_id": 11,
-            "cat_id": 15,
-            "img": "../../images/car-400x300.png",
-            "name": "test",
-            "person": 0,
-            "luggage": 0,
-            "doors": 0,
-            "transmission": "Auto Transmission",
-            "price": 0
         }
     ]
 }

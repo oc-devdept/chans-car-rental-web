@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import Default from "Components/Layout/PageTemplates/Default";
-
+import { useDispatch, useSelector } from "react-redux";
 import VehicleSearch from "Components/VehicleSearch/VehicleSearch";
 import VehicleSearchMobile from "Components/VehicleSearch/VehicleSearchMobile";
 import "Styles/search.css";
@@ -11,7 +11,14 @@ import { Card, ListGroup, Form, InputGroup, Button } from "react-bootstrap";
 import { getCategories, getSearch, updateExtraOptions } from "Ducks/rent/RentActions";
 
 const SearchExtras = (props) => {
+  const searchData = useSelector((state) => state.RentState.SearchData);
   const { SelectedVehicle, ExtraOptions } = props;
+  const startDate = searchData.pickUpDate;
+  const endDate = searchData.dropOffDate;
+  var diffDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24), 10); //parseInt
+  const diffDayz = Math.ceil(endDate - startDate / (1000 * 60 * 60 * 24)); 
+  // var diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10); 
+
   const [selectedVehicle, setSelectedVehicle] = useState({
     name: "Vehicle Name",
     person: 5,
@@ -19,7 +26,7 @@ const SearchExtras = (props) => {
     doors: 2,
     transmission: "Auto",
     priceDay: 100,
-    priceTotal: 300,
+    priceTotal: 100 * diffDays,
     rentalPrice: 0,
     malaysiaPrice: 30,
     rentalPriceDecimal: ".00"
@@ -28,29 +35,15 @@ const SearchExtras = (props) => {
   const [childSeats, setChildSeats] = useState(0);
   const [malaysiaTravel, setMalaysiaTravel] = useState(false);
 
-  // var checkBox = document.getElementById("malaysiaTravel");
+  const SetStatesDecrement = () => {
+    setChildSeats(childSeats - 1);
+    setSelectedVehicle({ ...selectedVehicle, rentalPrice: selectedVehicle.rentalPrice ? 30 * (childSeats - 1): 30 });
+  }
 
-  // const SetStatesDecrement = () => {
-  //   // console.log("decrement is working");
-  //   setChildSeats(childSeats - 1);
-  //   // console.log(childSeats);
-  //   setSelectedVehicle({ ...selectedVehicle, rentalPrice: selectedVehicle.rentalPrice ? 30 * (childSeats - 1): 30 });
-  //   // console.log(selectedVehicle.rentalPrice);
-  // }
-
-  // const SetStateIncrement = () => {
-  //   // console.log("increment is working");
-  //   setChildSeats(childSeats + 1);
-  //   // console.log(childSeats);
-  //   setSelectedVehicle({ ...selectedVehicle, rentalPrice: selectedVehicle.rentalPrice ? 30 * (childSeats + 1): 30 });
-  //   // console.log(selectedVehicle.rentalPrice);
-  // }
-
-  // const SetStateMalaysia = () => {
-  //   console.log("YYYYYY");
-  //   // setSelectedVehicle({ ...selectedVehicle, malaysiaPrice: 30 });
-  // }
-
+  const SetStateIncrement = () => {
+    setChildSeats(childSeats + 1);
+    setSelectedVehicle({ ...selectedVehicle, rentalPrice: selectedVehicle.rentalPrice ? 30 * (childSeats + 1): 30 });
+  }
 
   const handleClick = coverage => {
     let data = {
@@ -67,6 +60,10 @@ const SearchExtras = (props) => {
     <Default crumbs="Search Extras">
       <div className="search-extras">
         <div className="container mb-3">
+          {console.log(startDate)}
+          {console.log(endDate)}
+          {console.log(diffDays)}
+          {console.log(diffDayz)}
           <VehicleSearchMobile
             searchParameters={props.RentState.SearchParameters}
             getSearch={props.getSearch}
@@ -221,15 +218,11 @@ const SearchExtras = (props) => {
                               }
                             ></i>
                           </button>
-                          {/* {console.log("UUUUUU")}
-                          {console.log(childSeats)}
-                          {console.log(selectedVehicle.rentalPrice)} */}
                         </InputGroup.Append>
                       </InputGroup>
                     </div>
                     <div className="option-price col-8 col-md-2">
-                      {/* <p style={{ fontWeight: 600 }}>SGD {selectedVehicle.rentalPrice}{selectedVehicle.rentalPriceDecimal}/rental</p> */}
-                      <p style={{ fontWeight: 600 }}>SGD 30.00 /seat</p>
+                      <p style={{ fontWeight: 600 }}>SGD {selectedVehicle.rentalPrice}{selectedVehicle.rentalPriceDecimal}/rental</p>
                     </div>
                   </div>
                 </ListGroup.Item>
